@@ -1,8 +1,8 @@
-# FSWD - (Projektname)
+# FSWD - StudyNet
 ## Repository der Gruppe 04
 
 ### Projektbeschreibung:
-> StudyNest ist eine Webplattform für Studierende in Wohnheimen, die gegenseitige Alltagshilfe und soziale Vernetzung erleichtert. Nutzer\*Innen können Hilfe suchen und anbieten, verlorene Gegenstände melden und direkt miteinander in Kontakt treten.
+> StudyNet ist eine Webplattform für Studierende in Wohnheimen, die gegenseitige Alltagshilfe und soziale Vernetzung erleichtert. Nutzer\*Innen können Hilfe suchen und anbieten, verlorene Gegenstände melden und direkt miteinander in Kontakt treten.
 
 ### Geplante Features:
 * __Hilfe anbieten oder suchen__ - z.B. beim Möbelaufbau oder technischen Problemen

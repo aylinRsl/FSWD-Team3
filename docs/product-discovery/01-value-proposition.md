@@ -16,7 +16,7 @@
 Ich möchte auch meine Kenntnisse in der Webentwicklung erweitern und lernen, wie man eine Webanwendung gemeinsam im Team entwickelt. Dabei möchte ich auch meine Fähigkeiten in der Programmierung mit Python und mit GitHub verbessern. 
 
 ## Über das Projekt - Value Proposition
->(Namen ausdenken!!!) - Eine Plattform für gegenseitige Unterstützung, Vernetzung und Gemeinschaft in Studierendenwohnheimen.
+>StudyNet - Eine Plattform für gegenseitige Unterstützung, Vernetzung und Gemeinschaft in Studierendenwohnheimen.
 
 ### Aktuelles Problem:
 In Studierendenwohnheimen entstehen alltäglich __kleine Probleme__, bei denen es praktisch wäre, Hilfe von anderen Personen anzufordern statt professionelle Dienstleister\*Innen anzuheuern. Bei Dingen wie Möbelaufbau, Ausleihen von Werkzeug, Entgegennehmen von Paketen, Lost and Found, etc. können oft Mitmenschen behilflich sein. Einfach nach Hilfe von anderen zu fragen kann jedoch mit Unsicherheiten verbunden sein, wenn noch kein direkter Kontakt besteht.
@@ -32,7 +32,7 @@ Bewohner\*Innen können:
 Dabei muss Hilfe nicht immer auf einer sofortigen Gegenleistung beruhen, wer beispielsweise heute jemanden unterstützt erhält morgen vielleicht selbst Hilfe. Auch ein selbst gekochtes Essen oder eine kleine Aufmerksamkeit kann Dankbarkeit zum Ausdruck bringen. Selbstverständlich besteht dennoch die Option, eine monetäre Gegenleistung anzubieten.
 
 ### Was ist der Mehrwert?
-Durch die Plattform (Name) wird die __Hilfsbereitschaft sichtbar__ und die Kontaktaufnahme sowie __Vernetzung innerhalb der Community__ ermöglicht. Nutzer\*Innen können somit Geld und Zeit sparen, da sie keine zahlungspflichtigen Dienstleistungen in Anspruch nehmen müssen. Sie soll ebenfalls dabei helfen, Unsicherheiten und sozialer Isolation entgegenzuwirken, denn oft ist es schwierig, __persönliche Beziehungen oder ein Gefühl von Gemeinschaft__ aufzubauen, insbesondere wenn man neu in einer Stadt ist und noch niemanden kennt, was in Studierendenwohnheime häufig vorkommt.
+Durch die Plattform StudyNet wird die __Hilfsbereitschaft sichtbar__ und die Kontaktaufnahme sowie __Vernetzung innerhalb der Community__ ermöglicht. Nutzer\*Innen können somit Geld und Zeit sparen, da sie keine zahlungspflichtigen Dienstleistungen in Anspruch nehmen müssen. Sie soll ebenfalls dabei helfen, Unsicherheiten und sozialer Isolation entgegenzuwirken, denn oft ist es schwierig, __persönliche Beziehungen oder ein Gefühl von Gemeinschaft__ aufzubauen, insbesondere wenn man neu in einer Stadt ist und noch niemanden kennt, was in Studierendenwohnheime häufig vorkommt.
 
 Die Plattform soll also nicht nur praktische, alltägliche Probleme unkompliziert lösen sondern auch das Gemeinschaftsgefühl stärken, soziale Hemmschwellen abbauen und den Nutzer\*Innen das Gefühl vermitteln, __Teil einer unterstützenden Community__ zu sein. Somit soll dazu beigetragen werden, dass das Wohnheim sich wie ein Zuhause anfühlt.
 
