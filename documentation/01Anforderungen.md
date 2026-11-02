@@ -16,10 +16,10 @@
 Ich möchte auch meine Kenntnisse in der Webentwicklung erweitern und lernen, wie man eine Webanwendung gemeinsam im Team entwickelt. Dabei möchte ich auch meine Fähigkeiten in der Programmierung mit Python und mit GitHub verbessern. 
 
 ## Über das Projekt - Value Proposition
->(Namen ausdenken!!!) - Eine Plattform für gegenseitige Unterstützung, Vernetzung und Gemeinschaft in Studierendenwohnheimen.
+>Studynet - Eine Plattform für gegenseitige Unterstützung, Vernetzung und Gemeinschaft in Studierendenwohnheimen.
 
 ### Aktuelles Problem:
-In Studierendenwohnheimen entstehen alltäglich __kleine Probleme__, bei denen es praktisch wäre, Hilfe von anderen Personen anzufordern statt professionelle Dienstleister\*Innen anzuheuern. Bei Dingen wie Möbelaufbau, Ausleihen von Werkzeug, Entgegennehmen von Paketen, Lost and Found, etc. können oft Mitmenschen behilflich sein. Einfach nach Hilfe von anderen zu fragen kann jedoch mit Unsicherheiten verbunden sein, wenn noch kein direkter Kontakt besteht.
+In Studierendenwohnheimen entstehen alltäglich __kleine Probleme__, bei denen es praktisch wäre, Hilfe von anderen Personen anzufordern statt professionelle Dienstleister\*Innen anzuheuern. Bei Dingen wie Möbelaufbau, Ausleihen von Werkzeug, Entgegennehmen von Paketen, Lost and Found, etc. können oft Mitmenschen behilflich sein. Einfach nach Hilfe von anderen zu fragen kann jedoch mit Unsicherheiten verbunden sein, wenn noch kein direkter Kontakt besteht. Außerdem helfen Studierende im Wohnheim sich gegenseitig, sie sind oft mit ähnlichen Problemen konfrontiert.
 
 ### Wie möchten wir das Problem lösen?
 Unsere Plattform soll solche Informationen an einem einheitlichen Ort bündeln, sodass sich die Studierenden untereinander vernetzen können. 
