@@ -1,11 +1,6 @@
-> [!IMPORTANT]
-> Any text enclosed by `[ ]` are **placeholders**, including the opening and closing brackets.
->
-> You may delete this `!IMPORTANT` box.
-
 # [Project Name]
 
-[Include a short project description. Below, include a representative, attractive screenshot of your final web app.]
+> StudyNet ist eine Webplattform für Studierende in Wohnheimen, die gegenseitige Alltagshilfe und soziale Vernetzung erleichtert. Nutzer\*Innen können Hilfe suchen und anbieten, verlorene Gegenstände melden und direkt miteinander in Kontakt treten.
 
 ![attractive app screenshot](assets/images/fswd-intro_00.png)
 

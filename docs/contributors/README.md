@@ -2,8 +2,5 @@
 
 # Contributors
 
-[List all team members like so:
+-  [Aylin Rasul C.](aylin-rasulcervino.md)
 
--  [Jane Dane](jane-dane.md)
-
-]
