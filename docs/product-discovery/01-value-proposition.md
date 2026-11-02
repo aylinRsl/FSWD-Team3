@@ -29,7 +29,7 @@ Bewohner\*Innen können:
 * __Tools und Skills__ miteinander teilen 
 * Direkt miteinander __kommunizieren__ und sich unterstützen
 
-Dabei muss Hilfe nicht immer auf einer sofortigen Gegenleistung beruhen, wer beispielsweise heute jemanden unterstützt erhält morgen vielleicht selbst Hilfe. Auch ein selbst gekochtes Essen oder eine kleine Aufmerksamkeit kann Dankbarkeit zum Ausdruck bringen.
+Dabei muss Hilfe nicht immer auf einer sofortigen Gegenleistung beruhen, wer beispielsweise heute jemanden unterstützt erhält morgen vielleicht selbst Hilfe. Auch ein selbst gekochtes Essen oder eine kleine Aufmerksamkeit kann Dankbarkeit zum Ausdruck bringen. Selbstverständlich besteht dennoch die Option, eine monetäre Gegenleistung anzubieten.
 
 ### Was ist der Mehrwert?
 Durch die Plattform (Name) wird die __Hilfsbereitschaft sichtbar__ und die Kontaktaufnahme sowie __Vernetzung innerhalb der Community__ ermöglicht. Nutzer\*Innen können somit Geld und Zeit sparen, da sie keine zahlungspflichtigen Dienstleistungen in Anspruch nehmen müssen. Sie soll ebenfalls dabei helfen, Unsicherheiten und sozialer Isolation entgegenzuwirken, denn oft ist es schwierig, __persönliche Beziehungen oder ein Gefühl von Gemeinschaft__ aufzubauen, insbesondere wenn man neu in einer Stadt ist und noch niemanden kennt, was in Studierendenwohnheime häufig vorkommt.
