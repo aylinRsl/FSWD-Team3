@@ -5,7 +5,7 @@
 
 ### Target grade
 
-Mein Ziel ist es, das Modul erfolgreich abzuschließen mit einer sehr guten Note.´ßü#
+Mein Ziel ist es, das Modul erfolgreich abzuschließen mit einer sehr/guten Note.
 
 ### Personal goals
 
