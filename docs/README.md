@@ -4,10 +4,6 @@
 
 ![attractive app screenshot](assets/images/1.Registrieren.png)
 ![attractive app screenshot](assets/images/2.Login.png)
-![attractive app screenshot](assets/images/3.Anfragen.png)
-![attractive app screenshot](assets/images/4.Anfrage%20erstellen.png)
-![attractive app screenshot](assets/images/5.chats.png)
-![attractive app screenshot](assets/images/6.MeinProfil.png)
 <p align="center">
   <img src="assets/images/3.Anfragen.png" alt="Anfragen"><br>
   <img src="assets/images/4.Anfrage%20erstellen.png" alt="Anfrage erstellen"><br>
