@@ -3,7 +3,7 @@
 > StudyNet ist eine Webplattform für Studierende in Wohnheimen, die gegenseitige Alltagshilfe und soziale Vernetzung erleichtert. Nutzer\*Innen können Hilfe suchen und anbieten, verlorene Gegenstände melden und direkt miteinander in Kontakt treten.
 
 ![attractive app screenshot](assets/images/fswd-intro_00.png)
-![attractive app screenshot](/Users/miriamkouweider/FSWD-Team4/docs/assets/images/1.Registrieren.png)
+![attractive app screenshot](assets/images/1.Registrieren.png)
 
 ---
 
