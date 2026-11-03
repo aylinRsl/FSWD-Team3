@@ -3,4 +3,6 @@
 # Contributors
 
 -  [Aylin Rasul C.](aylin-rasulcervino.md)
-
+-  [Miriam Kouweider](miriam-kouweider.md)
+-  [Nastasya Bernadette](hier-dein-link.md)
+-  [Narin Edebali](hier-dein-link.md)
