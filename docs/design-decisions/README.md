@@ -2,9 +2,7 @@
 
 # Design Decisions
 
-[Maintain an up-to-date directory of your Design Decisions like so:
+- [00: Privatchat](dd-00.md) (Aylin Rasul C.)
+- [01: How to access the database - SQL or SQLAlchemy](dd-000-muster-nicht-loeschen.md) (Muster/Vorlage)
 
-- [00: Title](dd-00.md) (John Doe)
-- [01: How to access the database - SQL or SQLAlchemy](dd-01.md) (Jane Dane)
-
-**Important:** Indicate who leads each Design Decision by putting their full name in parenthesis.]
+**Important:** The name in the parenthesis indicates who was the lead regarding the design decisions that were made.

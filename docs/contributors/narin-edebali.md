@@ -1,29 +1,20 @@
-[← Contributors](README.md)
-
-> [!CAUTION]
-> Create a separate, individual file for every team member, proposed naming scheme: `📄firstname-lastname.md`.
->
-> *Find and replace* (VS Code: <kbd>Ctrl</kbd>+<kbd>H</kbd> / <kbd>⌘</kbd>+<kbd>H</kbd>) `Jane Dane` with the student's name. On this template page, you will find this name 3 times (including in this `!CAUTION` box). 
->
-> You may delete this `!CAUTION` box.
-
-# Jane Dane
+# Nârin Edebali
 
 ## Meta-Goals
 
 ### Target grade
 
-[State your target grade for this module. This is meant as a signal to your fellow team members.]
+Meine Zielnote für dieses Modul ist 2,0.
 
 ### Personal goals
 
-[State your personal goals regarding this Module, to create transparency among the team members.]
+Mein persönliches Ziel ist es, meine Programmierkenntnisse zu verbessern und mehr praktische Erfahrungen in der Webentwicklung zu sammeln. Zudem habe ich noch nie mit Python gearbeitet somit lerne ich viel neues dazu. Außerdem möchte ich lernen, wie man gemeinsam in einem Team eine Webanwendung entwickelt und dabei mit Git und GitHub arbeitet. 
 
 ---
 
 ## Eidesstattliche Erklärung
 
-**[Jane Dane, Matrikelnr.: 1234567]**
+**Nârin Edebali, Matrikelnr.: 77204697576**
 
 Ich erkläre an Eides statt:
 
