@@ -1,10 +1,10 @@
 # StudyNet
 
->Eine Plattform für gegenseitige Unterstützung, Vernetzung und Gemeinschaft in Studierendenwohnheimen.
+Eine Plattform für gegenseitige Unterstützung, Vernetzung und Gemeinschaft in Studierendenwohnheimen.
 
->Bewohner\*Innen können Hilfe suchen oder anbieten, verlorene und gefundene Gegenstände melden sowie Tools und Skills teilen. 
+Bewohner\*Innen können Hilfe suchen oder anbieten, verlorene und gefundene Gegenstände melden sowie Tools und Skills teilen. 
 
->Mehr dazu in der [Dokumentation](docs/README.md) sowie in der  [Value Proposition](docs/01-value-proposition.md).
+Mehr dazu in der [Dokumentation](docs/README.md) sowie in der  [Value Proposition](docs/01-value-proposition.md).
 
 > Projekt im Rahmen des Moduls Full-Stack Web Development (HWR Berlin), Team 4 "StudyNet".
 
@@ -28,11 +28,12 @@
 
 ## Tech Stack
 
-* Python, Flask
-* SQLite
-* HTML, CSS
+* __Frontend:__
+* __Backend:__
+* __Database:__
+* __Other:__
 
-> TODO: Anpassen
+> TODO: eintragen wenn fertig
 
 ## Setup
 
@@ -62,7 +63,7 @@
 
 ## Usage
 
-> TODO: Kurz beschreiben, wie man die App nutzt, z. B.:
+> TODO: Kurz beschreiben, wie man die App nutzt wenn fertig (das hier ist generisch)
 > 1. Registrieren und einloggen
 > 2. Beitrag erstellen
 > 3. Beiträge suchen und filtern
@@ -81,7 +82,7 @@ FSWD-Team4/
 └── README.md
 ```
 
-> TODO: ergänzen
+> TODO: ergänzen, muss Lizenz da auch rein? nachprüfen
 
 ## Dokumentation
 
@@ -89,4 +90,4 @@ Die komplette Projektdokumentation liegt im Ordner [`docs/`](docs/README.md).
 
 ## Lizenz
 
-Siehe [LICENSE](LICENSE).
+Siehe [LICENSE](LICENSE)
