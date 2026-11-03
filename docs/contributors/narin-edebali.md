@@ -14,7 +14,7 @@ Mein persönliches Ziel ist es, meine Programmierkenntnisse zu verbessern und me
 
 ## Eidesstattliche Erklärung
 
-**[Nârin Edebali, Matrikelnr.: 77204697576]**
+**Nârin Edebali, Matrikelnr.: 77204697576**
 
 Ich erkläre an Eides statt:
 
