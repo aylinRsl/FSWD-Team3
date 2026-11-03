@@ -6,3 +6,4 @@ venv/
 
 # Optional: ignore instance folder (used by Flask web app, e.g., for SQLite database)
 instance/
+sql/
