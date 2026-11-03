@@ -6,7 +6,7 @@ Bewohner\*Innen können Hilfe suchen oder anbieten, verlorene und gefundene Gege
 
 Mehr dazu in der [Dokumentation](docs/README.md) sowie in der  [Value Proposition](docs/01-value-proposition.md).
 
-> Projekt im Rahmen des Moduls Full-Stack Web Development (HWR Berlin), Team 4 "StudyNet".
+> Projekt im Rahmen des Moduls Full-Stack Web Development (HWR Berlin), Team 3 "StudyNet".
 
 ## Team
 
