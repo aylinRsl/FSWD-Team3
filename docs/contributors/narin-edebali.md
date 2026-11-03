@@ -1,5 +1,4 @@
-Nârin Edebali
-# Miriam Kouweider
+# Nârin Edebali
 
 ## Meta-Goals
 
