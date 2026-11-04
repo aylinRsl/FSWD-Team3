@@ -4,7 +4,7 @@
 
 ### Target grade
 
-Meine Zielnote für dieses Modul ist 2,0.
+Meine Zielnote für dieses Modul ist 1,3 -1,7.
 
 ### Personal goals
 
