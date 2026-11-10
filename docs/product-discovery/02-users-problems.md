@@ -32,6 +32,13 @@ In einer von uns durchgeführten Umfrage ergab sich folgendes:
 * Als Gegenleistung reicht **7 Personen** die Gewissheit aus, dass sie selbst bei einer anderen Gelegenheit Hilfe bekommen können, **4 Personen** empfinden ein Dankeschön als angemessene Gegenleistung, **2 Personen** reicht der soziale Kontakt, einer Person eine kleine Aufmerksamkeit und einer Person ein kleiner Geldbetrag ([Diagramm F8](material/02-up/F8.png))
 * Alle befragten Personen geben an, dass sie die Plattform grundsätzlich verwenden würden. Zwei Personen wenden ein, dass **Kostenpflichtigkeit** sie davon abhalten würde, abgesehen davon ist das Feedback positiv ([Diagramm F9](material/02-up/F9.png))
 
+Konkret lautete das Feedback auf Frage 9 ("Würde dich etwas davon abhalten, eine solche Plattform zu verwenden?") :
+* "Nein, ich halte es außerden auch für eine gute Möglichkeit, untereinander Kontakte zu knüpfen"
+* "Nein, bei so einer Plattform wäre dann klar, das\[s\] jeder da bereit ist zu helfen, dann hätte ich auch keine angst zu fragen"
+* "Nein es wäre eine gute Option für Menschen die weniger sozialer sind, aber trotzdem Hilfe brauchen zum Beispiel"
+* "Nein. Ich würde die Plattform super gerne nutzen"
+* "Nichts" / "Nein" / "Wenn es kostenpflichtig wäre" / "Wenn dei \[die\] App Kostenflichtig wäre.
+
 ## Raw Material & Artefacts
 
 - [Uni Mannheim: Einsamkeit im Studium](https://www.uni-mannheim.de/studium/gesund-studieren/mentale-gesundheit-im-studium/einsamkeit/)
