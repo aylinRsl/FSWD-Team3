@@ -41,7 +41,7 @@ Mehr dazu in der [Dokumentation](docs/README.md) sowie in der  [Value Propositio
 
 1. Repository klonen:
    ```
-   git clone https://github.com/aylinRsl/FSWD-Team4.git
+   git clone https://github.com/aylinRsl/FSWD-Team3.git
    cd FSWD-Team4
    ```
 2. Virtuelle Umgebung erstellen und aktivieren:

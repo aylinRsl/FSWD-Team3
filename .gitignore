@@ -7,3 +7,6 @@ venv/
 # Optional: ignore instance folder (used by Flask web app, e.g., for SQLite database)
 instance/
 sql/
+
+# Ignore .DS_Store files (system-generated folder)
+.DS_Store
