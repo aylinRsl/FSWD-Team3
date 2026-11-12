@@ -5,7 +5,7 @@
 >
 > You may delete this `!WARNING` box.
 
-# 01: How to access the database - SQL or SQLAlchemy 
+# 000: How to access the database - SQL or SQLAlchemy 
 
 | Property | Value |
 |--:|:--|

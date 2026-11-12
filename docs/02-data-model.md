@@ -4,53 +4,96 @@
 
 ## Overview
 
-[Briefly describe what data your app stores and how the data model supports the platform's core functionality. In particular, explain how the two user groups and their interactions are represented.]
+Für StudyNet werden Wohnheime, Bewohner\*Innen, Beiträge (Hilfegesuche und -angebote), Kategorien, Helfenden-Zusagen und Privatnachrichten gespeichert.
+Jede Person gehört zu genau einem Wohnheim. Beiträge, Hilfe und Nachrichten finden innerhalb dieses Wohnheims statt.
+Die beiden Nutzendengruppen – **Hilfesuchende** und **Hilfsbereite** – sind keine getrennten Rollen, sondern dieselbe Entität `User`. Welche Rolle jemand einnimmt, ergibt sich aus der Interaktion. Wer einen Beitrag erstellt, ist Autor\*in, wer bei einem Beitrag hilft, wird als Helfer\*in erfasst. Dieselbe Person kann also in einem Beitrag Hilfe suchen und in einem anderen Hilfe anbieten.
 
 ## Entity-Relationship Diagram
-
-[Visualize your app's data model using an Entity-Relationship Diagram (ERD). Include the main entities, their relevant attributes, primary and foreign keys, and relationship cardinalities (e.g., one-to-many or many-to-many).
-
-You can use [Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html) to create the diagram directly in Markdown, as illustrated by the following example. Replace this example with your own data model.]
 
 ```mermaid
 erDiagram
     direction TB
 
-    User ||--o{ Listing : publishes
-    User ||--o{ Request : submits
-    Listing ||--o{ Request : receives
+    Dormitory ||--o{ User : "inhabited by"
+    Dormitory ||--o{ Post : "has"
+    User ||--o{ Post : "creates"
+    Category ||--o{ Post : "categorizes"
+    User ||--o{ Message : "sends"
+    User ||--o{ Message : "receives"
+    Post ||--o{ Message : "concerns"
+    Post ||--o{ PostHelper : "has helpers"
+    User ||--o{ PostHelper : "helps with"
+
+    Dormitory {
+        int id PK
+        string name
+        string city
+        string verification_code
+    }
 
     User {
         int id PK
+        string username UK
         string email UK
+        string password_hash
+        string room_number
+        string bio
+        boolean is_verified
+        datetime created_at
+        int dormitory_id FK
     }
 
-    Listing {
+    Category {
         int id PK
-        int publisher_id FK
+        string name UK
+    }
+
+    Post {
+        int id PK
         string title
         string description
+        string type "request | offer"
+        string status "open | done"
+        string reward_type "none | thanks | money"
+        string reward_note
+        datetime created_at
+        int author_id FK
+        int dormitory_id FK
+        int category_id FK
     }
 
-    Request {
+    PostHelper {
+        int post_id PK, FK
+        int user_id PK, FK
+        datetime created_at
+    }
+
+    Message {
         int id PK
-        int listing_id FK
-        int requester_id FK
-        string status
+        string body
+        datetime created_at
+        boolean is_read
+        int sender_id FK
+        int recipient_id FK
+        int post_id FK
     }
-
 ```
 
 ## Entities and Relationships
 
-[Briefly explain the purpose of the main entities and how they relate to each other. Focus on aspects that aren't immediately obvious from the diagram. In particular, explain how your data model represents the two user groups, the offered products or services, and the interactions between supply and demand.
+**Dormitory** grenzt die Plattform ab. Nutzer*innen sehen nur Beiträge aus ihrem eigenen Wohnheim. Der `verification_code` dient der Identitätsprüfung, wer bei der Registrierung den richtigen Code seines Wohnheims eingibt, wird als verifiziert markiert (`is_verified`).
 
-Do not simply repeat attribute definitions or relationship cardinalities already visible in the ERD.
+**Post** bildet Angebot und Nachfrage in einer Entität ab. Über `type` wird unterschieden, ob jemand Hilfe sucht (`request`) oder anbietet (`offer`). Ob und wie eine Gegenleistung erwartet wird, beschreiben `reward_type` und `reward_note`. Mit `status` markiert die Autor*in, ob der Beitrag noch offen oder erledigt ist.
+
+`Post.dormitory_id` ist bewusst zusätzlich zur Wohnheim-Zuordnung über die Autor\*in gespeichert. So bleibt ein Beitrag dem Wohnheim zugeordnet, in dem er erstellt wurde, auch wenn die Autor*in später umzieht.
+
+**Category** ordnet Beiträge thematisch ein (z. B. Nachhilfe, Fundsachen, Tools & Skills) und ermöglicht das Filtern und Durchsuchen.
+
+**PostHelper** (siehe [design decision](design-decisions/dd-01.md) ) Sagt jemand bei einem Beitrag Hilfe zu, entsteht hier ein Eintrag. Ein Beitrag kann mehrere Helfer\*innen haben, und eine Person kann bei mehreren Beiträgen helfen. Der zusammengesetzte Primärschlüssel verhindert, dass dieselbe Person sich zweimal für denselben Beitrag meldet.
+
+**Message** ermöglicht private Absprachen zwischen zwei Nutzer\*innen. Jede Nachricht bezieht sich auf einen Beitrag, sodass Gespräche immer einem konkreten Anliegen zugeordnet sind. Ein Chatverlauf ergibt sich aus allen Nachrichten zwischen zwei Personen zu einem Beitrag.
 
 ## Related Design Decisions
 
-[Link to the Design Decisions that explain important choices in your data model, such as the representation of user roles, relationships between entities, or data integrity constraints. Keep the rationale in those documents rather than duplicating it here. Use relative links for referencing, like so:
+- [01: Speicherung der post_helper in der DB](design-decisions/dd-01.md)
 
-- [01: How to access the database - SQL or SQLAlchemy](design-decisions/dd-01.md)
-
-[**Important:** The documented data model, including related Design Decisions, must reflect your app's actual implementation.]
