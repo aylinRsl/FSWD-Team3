@@ -2,18 +2,17 @@
 
 > StudyNet ist eine Webplattform für Studierende in Wohnheimen, die gegenseitige Alltagshilfe und soziale Vernetzung erleichtert. Nutzer\*Innen können Hilfe suchen und anbieten, verlorene Gegenstände melden und direkt miteinander in Kontakt treten.
 
-![attractive app screenshot](assets/images/1.Registrieren.png)
-![attractive app screenshot](assets/images/2.Login.png)
-<p align="center">
-  <img src="assets/images/3.Anfragen.png" alt="Anfragen"><br>
-  <img src="assets/images/4.Anfrage%20erstellen.png" alt="Anfrage erstellen"><br>
-  <img src="assets/images/5.chats.png" alt="Chats"><br>
-  <img src="assets/images/6.MeinProfil.png" alt="Mein Profil">
-</p>
+![Registrieren](assets/UI-Design/1.Registrieren.png)
 
+![Login](assets/UI-Design/2.Login.png)
 
----
+![Anfragen](assets/UI-Design/3.Anfragen.png)
 
+![Anfrage erstellen](assets/UI-Design/4.Anfrage%20erstellen.png)
+
+![Chats](assets/UI-Design/5.chats.png)
+
+![Mein Profil](assets/UI-Design/6.MeinProfil.png)
 
 ## Documentation Contents
 
