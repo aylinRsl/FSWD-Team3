@@ -24,6 +24,8 @@ CREATE TABLE category (
 );
 
 CREATE TABLE post (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    
 );
 
 CREATE TABLE post_helper (
