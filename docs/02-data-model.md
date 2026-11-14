@@ -36,7 +36,6 @@ erDiagram
         string username UK
         string email UK
         string password_hash
-        string room_number
         string bio
         boolean is_verified
         datetime created_at
