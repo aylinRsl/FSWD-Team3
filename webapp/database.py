@@ -1,4 +1,6 @@
+import os
 import sqlite3
+import click
 from flask import current_app, g
 
 def get_db():
@@ -16,6 +18,15 @@ def close_db(e=None):
     if db is not None:
         db.close()
 
-# Datenbank nach jrder Anfrage automatisch schließen
-def init_app(app):
-    app.teardown_appcontext(close_db)
+@click.command('init-db')
+def init_db():
+    try:
+        os.makedirs(current_app.instance_path)
+    except OSError:
+        pass
+    db = get_db()
+    with current_app.open_resource('sql/drop_tables.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+    with current_app.open_resource('sql/create_tables.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+    click.echo('Database has been initialized.')
