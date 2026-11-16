@@ -25,7 +25,7 @@ CREATE TABLE category (
 CREATE TABLE post (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
-    description text,
+    description TEXT,
     type TEXT NOT NULL CHECK (type IN ('request', 'offer')),
     status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'done')),
     reward_type TEXT NOT NULL DEFAULT 'none' CHECK (reward_type IN ('none', 'thanks', 'money')),
