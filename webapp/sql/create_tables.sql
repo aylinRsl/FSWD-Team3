@@ -33,10 +33,10 @@ CREATE TABLE post (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     author_id INTEGER NOT NULL,
     dormitory_id INTEGER NOT NULL,
-    category_ID INTEGER NOT NULL,
+    category_id INTEGER NOT NULL,
     FOREIGN KEY (author_id) REFERENCES user(id) ON DELETE CASCADE,
     FOREIGN KEY (dormitory_id) REFERENCES dormitory (id),
-    FOREIGN KEY (category_ID) REFERENCES category (id)
+    FOREIGN KEY (category_id) REFERENCES category (id)
 
 );
 
