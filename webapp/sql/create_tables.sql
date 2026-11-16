@@ -45,8 +45,8 @@ CREATE TABLE post_helper (
     user_id INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (post_id, user_id),
-    FOREIGN KEY (post_id) REFERENCES post (id) on DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES user (id) on DELETE CASCADE  
+    FOREIGN KEY (post_id) REFERENCES post (id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE  
 );
 
 CREATE TABLE message (
