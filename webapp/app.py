@@ -1,6 +1,6 @@
 import os
 from forms import RegistrationForm, LoginForm
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, flash, redirect
 import database 
 
 app = Flask(__name__)
@@ -25,16 +25,24 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+    #erfolgreich Daten eingegeben flash message
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
     return render_template('register.html', title='Registrieren', form=form)
 
 @app.route('/login')
 def login():
     form = LoginForm()
-    return render_template('login.html', title='Einloggen', form=form)
+    return render_template('login.html', title='Login', form=form)
 
+@app.route('/impressum')
+def impressum():
+    return render_template('impressum.html', title='Impressum', form=form)
 
-
-
+@app.route('/datenschutz')
+def datenschutz():
+    return render_template('datenschutz.html', title='Datenschutz', form=form)
