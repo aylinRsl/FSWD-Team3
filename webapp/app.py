@@ -1,9 +1,12 @@
 import os
-from flask import Flask, render_template
+from forms import RegistrationForm, LoginForm
+from flask import Flask, render_template, url_for, flash, redirect
 import database 
 
 app = Flask(__name__)
 
+#secret key für auth.py, generiert mit python secrets.token_hex
+app.config['SECRET_KEY'] = 'b9e2ee9c9612c20fe2aeec1149e730b9'
 app.secret_key = "studynet-secret-key"
 
 app.config.from_mapping(
@@ -22,6 +25,24 @@ def home():
 def about():
     return render_template('about.html')
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    #erfolgreich Daten eingegeben flash message
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
+    return render_template('register.html', title='Registrieren', form=form)
 
+@app.route('/login')
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Login', form=form)
 
+@app.route('/impressum')
+def impressum():
+    return render_template('impressum.html', title='Impressum', form=form)
 
+@app.route('/datenschutz')
+def datenschutz():
+    return render_template('datenschutz.html', title='Datenschutz', form=form)
