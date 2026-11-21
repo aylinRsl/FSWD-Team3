@@ -58,3 +58,7 @@ def datenschutz():
 @app.route('/community-richtlinien')
 def community_richtlinien():
     return render_template('community-richtlinien.html')
+
+@app.route('/anfragen')
+def anfrage():
+    return render_template('anfragen.html')
