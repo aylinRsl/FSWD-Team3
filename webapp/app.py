@@ -55,6 +55,6 @@ def impressum():
 def datenschutz():
     return render_template('datenschutz.html')
 
-@app.rpute('/community-richtlinien')
-def cummunityRichtlinien():
+@app.route('/community-richtlinien')
+def community_richtlinien():
     return render_template('community-richtlinien.html')
