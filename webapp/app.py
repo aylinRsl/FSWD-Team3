@@ -1,7 +1,9 @@
 import os
-from forms import RegistrationForm, LoginForm
-from flask import Flask, render_template, url_for, flash, redirect
 import database 
+import functools
+from forms import RegistrationForm, LoginForm
+from flask import Flask, render_template, url_for, flash, redirect, session, g
+from werkzeug.security import check_password_hash 
 
 app = Flask(__name__)
 
@@ -39,10 +41,20 @@ def login():
     form = LoginForm()
     return render_template('login.html', title='Login', form=form)
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('Du wurdest ausgeloggt.', 'info')
+    redirect(url_for('login'))
+
 @app.route('/impressum')
 def impressum():
-    return render_template('impressum.html', title='Impressum', form=form)
+    return render_template('impressum.html')
 
 @app.route('/datenschutz')
 def datenschutz():
-    return render_template('datenschutz.html', title='Datenschutz', form=form)
+    return render_template('datenschutz.html')
+
+@app.rpute('/community-richtlinien')
+def cummunityRichtlinien():
+    return render_template('community-richtlinien.html')

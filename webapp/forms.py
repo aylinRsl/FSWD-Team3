@@ -42,7 +42,6 @@ class RegistrationForm(FlaskForm):
                         validators=[InputRequired(), EqualTo('password')])
     submit = SubmitField('Registrieren')
 
-
 class LoginForm(FlaskForm):
     email = StringField('Uni-E-Mail',
                         validators=[InputRequired(), Email()])
