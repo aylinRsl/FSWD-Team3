@@ -27,7 +27,6 @@ erDiagram
     Dormitory {
         int id PK
         string name
-        string city
         string verification_code
     }
 
