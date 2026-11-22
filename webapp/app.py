@@ -47,7 +47,7 @@ def logout():
 def anfrage():
     return render_template('anfragen.html')
 
-# Statische Seiten
+# Statische Seiten im Footer / Nav
 @app.route('/about')
 def about():
     return render_template('about.html')

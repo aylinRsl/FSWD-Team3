@@ -29,13 +29,13 @@
     {% block content %}{% endblock %}
 
 {# Footer mit den Verlinkungen #}
-<footer class=""border-top py-3 mt-5>
+<footer class="border-top py-3 mt-5">
     <div class="contaier d-flex justify-content-between small text-muted">
         <span>&copy 2026 StudyNet</span> 
         <span>
+            <a href="{{url_for('about')}}">Über uns</a>
             <a href="{{url_for('impressum')}}">Impressum</a>
             <a href="{{url_for('datenschutz')}}">Datenschutz</a>
-            <a href="{{url_for('about')}}">Über uns</a>
             <a href="{{url_for('community_richtlinien')}}">Community Richtlinien</a>
         </span>
     </div>
