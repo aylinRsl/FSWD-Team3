@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
 from wtforms.validators import InputRequired, Length, Email, EqualTo, Regexp, ValidationError
 
+#@aylinRsl
 # Email DOmains der verschiedenen berliner Hochschulen: Konstante für den Validator
 ALLOWED_DOMAINS = [
     'stud.hwr-berlin.de'

@@ -23,10 +23,6 @@ app.teardown_appcontext(database.close_db)
 def home():
     return render_template('home.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -46,6 +42,15 @@ def logout():
     session.clear()
     flash('Du wurdest ausgeloggt.', 'info')
     redirect(url_for('login'))
+    
+@app.route('/anfragen')
+def anfrage():
+    return render_template('anfragen.html')
+
+# Statische Seiten
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/impressum')
 def impressum():
@@ -59,6 +64,4 @@ def datenschutz():
 def community_richtlinien():
     return render_template('community-richtlinien.html')
 
-@app.route('/anfragen')
-def anfrage():
-    return render_template('anfragen.html')
+
