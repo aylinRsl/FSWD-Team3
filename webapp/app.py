@@ -47,6 +47,14 @@ def logout():
 def anfrage():
     return render_template('anfragen.html')
 
+@app.route('/nachrichten')
+def nachrichten():
+    return render_template('chat.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
 # Statische Seiten im Footer / Nav
 @app.route('/about')
 def about():
