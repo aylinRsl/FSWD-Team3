@@ -60,11 +60,14 @@ def strip_text(value):
 class PostForm(FlaskForm):
     # "Ich suche ..." / "Ich biete an ..." 
     type = RadioField('Was möchtest du?',
-                      choices=[('request', 'Ich suche …'),
-                               ('offer', 'Ich biete an …')],
+                      choices=[('request', 'Ich suche …')
+                               ('offer', 'Ich biete an …')]
                       validators=[InputRequired(message='Bitte wähle suchen oder anbieten.')])
 
 title = StringField('Titel', filters=[strip_text],
-                        validators=[DataRequired(message='Bitte gib einen Titel ein.'),
+                        validators=[DataRequired(message='Bitte gib einen Titel ein.')
                                     Length(max=100)])
+
+description = TextAreaField('Beschreibung', filters=[strip_text],
+                                validators=[Optional(), Length(max=2000)])
 
