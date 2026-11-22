@@ -2,12 +2,14 @@
 {% block title %}StudyNet - Anfragen{% endblock %}
 {% block content %}
 
-<h1>Aktuelle Anfragen</h1>
+<div class="container py-4">
+
+<h1 class= "mb-4">Anfragen</h1>
 
 <!-- Filtern mit Kategorien, kann sich noch ändern-->
 
-<div class="d-flex flex-wrap gap-4">
-    <a href="/Anfragen">Alle</a>
+<div class="d-flex flex-wrap gap-4 mb-4">
+    <a href="/anfragen">Alle</a>
     <a href="/anfragen?kategorie=lernen">Lernen & Nachhilfe</a>
     <a href="/anfragen?kategorie=wohnen">Wohnen & WG</a>
     <a href="/anfragen?kategorie=alltagshilfe">Alltag & Unterstützung</a>
@@ -16,11 +18,19 @@
 
 <!-- Beitragskasten erstellen test-->
 
-<div class="border p-3">
+<div class="card border-2 border-secondary bg-light mb-4">
+    <div class="card-body p-4">
     <h2>Nachilfe in Mathe</h2>
-    <p>Heute um 12 Uhr</p>
+    <p class="small text-muted">Heute um 12 Uhr</p>
     <p>Ich brauche Hilfe in Analysis und Lineare Algebra</p>
-    <p>Miriam</p>
+
+<div class="border-top pt-3 d-flex justify-content-between align-items-center">
+    <p class="mb-0">Miriam</p>
+    <a href="adresse">Jetzt chatten</a>
 </div>
+</div>
+</div>
+</div>
+
 
 {%endblock content%}
