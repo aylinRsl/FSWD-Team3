@@ -31,5 +31,6 @@ def init_db():
         db.executescript(f.read().decode('utf8'))
     click.echo('Database has been initialized.')
 
-    with current_app.open_resource('sql/create_tables.sql') as f:
+
+    with current_app.open_resource('sql/insert_categories.sql') as f:
         db.executescript(f.read().decode('utf8'))
