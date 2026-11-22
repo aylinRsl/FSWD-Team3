@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
-from wtforms.validators import InputRequired, Length, Email, EqualTo, Regexp, ValidationError
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, RadioField, TextAreaField
+from wtforms.validators import InputRequired, DataRequired, Length, Email, EqualTo, Regexp, ValidationError, Optional
 
 # Email DOmains der verschiedenen berliner Hochschulen: Konstante für den Validator
 ALLOWED_DOMAINS = [
@@ -51,3 +51,9 @@ class LoginForm(FlaskForm):
     # TODO überprüfen
     # remember = BooleanField('Anmeldung speichern')
     submit = SubmitField('Einloggen')
+
+# Formulare für das Feature "CRUD für Beiträge" (Narin)
+def strip_text(value):
+    """Filter: entfernt Leerzeichen am Anfang/Ende ("   " wird zu "")."""
+    return value.strip() if isinstance(value, str) else value
+
