@@ -57,3 +57,10 @@ def strip_text(value):
     """Filter: entfernt Leerzeichen am Anfang/Ende ("   " wird zu "")."""
     return value.strip() if isinstance(value, str) else value
 
+class PostForm(FlaskForm):
+    # "Ich suche ..." / "Ich biete an ..." 
+    type = RadioField('Was möchtest du?',
+                      choices=[('request', 'Ich suche …'),
+                               ('offer', 'Ich biete an …')],
+                      validators=[InputRequired(message='Bitte wähle suchen oder anbieten.')])
+
