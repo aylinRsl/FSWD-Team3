@@ -37,5 +37,34 @@
                     <div class="text-danger small">{{ error }}</div>
                 {% endfor %}
             </div>
+          <div class="mb-3">
+                {{ form.description.label(class="form-label") }}
+                {{ form.description(class="form-control", rows=5) }}
+                {% for error in form.description.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-3">
+                {{ form.category_id.label(class="form-label") }}
+                {{ form.category_id(class="form-select") }}
+                {% for error in form.category_id.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    {{ form.reward_type.label(class="form-label") }}
+                    {{ form.reward_type(class="form-select") }}
+                </div>
+                <div class="col-md-7 mb-3">
+                    {{ form.reward_note.label(class="form-label") }}
+                    {{ form.reward_note(class="form-control", placeholder="z. B. 5 € oder ein Stück Kuchen") }}
+                    {% for error in form.reward_note.errors %}
+                        <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            </div>   
            
     
