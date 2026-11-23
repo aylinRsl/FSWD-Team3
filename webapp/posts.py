@@ -96,3 +96,18 @@ def create():
         return redirect(url_for('posts.my_posts'))
 
     return render_template('posts/form.html', form=form, heading='Anfrage erstellen')
+
+
+# UPDATE: Status offen <-> erledigt
+@bp.route('/<int:post_id>/status', methods=['POST'])
+@login_required
+def toggle_status(post_id):
+    get_own_post(post_id)
+    if not ConfirmForm().validate_on_submit():   # prüft das CSRF-Token
+        abort(400)
+    db = get_db()
+    db.execute("UPDATE post SET status = CASE status WHEN 'open' THEN 'done' ELSE 'open' END "
+               "WHERE id = ? AND author_id = ?", (post_id, g.user['id']))
+    db.commit()
+    flash('Status wurde geändert.', 'info')
+    return redirect(url_for('posts.my_posts'))
