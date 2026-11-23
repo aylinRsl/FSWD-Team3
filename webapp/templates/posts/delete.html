@@ -11,4 +11,14 @@
                 <p class="mb-0 text-muted">{{ post['description'] or '' }}</p>
             </div>
         </div>
+
         <p>Das Löschen kann nicht rückgängig gemacht werden.</p>
+         <form method="POST" action="" class="d-flex gap-2">
+            {{ form.hidden_tag() }}
+            {{ form.submit(class="btn btn-danger", value="Ja, endgültig löschen") }}
+            <a class="btn btn-outline-secondary" href="{{ url_for('posts.my_posts') }}">Abbrechen</a>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock content %}
