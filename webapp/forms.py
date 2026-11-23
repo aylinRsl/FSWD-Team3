@@ -76,8 +76,8 @@ category_id = SelectField('Kategorie', coerce=int,
                               validators=[InputRequired()])
 
 reward_type = SelectField('Gegenleistung',
-                              choices=[('none', 'Keine')
-                                       ('thanks', 'Ein Dankeschön (z. B. Essen)')
+                              choices=[('none', 'Keine'),
+                                       ('thanks', 'Ein Dankeschön (z. B. Essen)'),
                                        ('money', 'Kleiner Geldbetrag')]
                               default='none')
 
