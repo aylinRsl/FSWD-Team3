@@ -1,7 +1,7 @@
 import os
 import database 
 import functools
-from forms import RegistrationForm, LoginForm
+from forms import ContactForm, RegistrationForm, LoginForm
 from flask import Flask, render_template, url_for, flash, redirect, session, g
 from werkzeug.security import check_password_hash 
 
@@ -60,9 +60,13 @@ def profile():
 def about():
     return render_template('about.html')
 
-@app.route('/kontaktformular')
+@app.route('/kontaktformular', methods=['GET', 'POST'])
 def kontaktformular():
-    return render_template('kontaktformular.html')
+    form = ContactForm()
+    if form.validate_on_submit():
+        flash('Deine Nachricht wurde gesendet!', 'success')
+        return redirect(url_for('kontaktformular'))
+    return render_template('kontaktformular.html', form=form)
 
 @app.route('/impressum')
 def impressum():

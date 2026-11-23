@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
-from wtforms.validators import InputRequired, Length, Email, EqualTo, Regexp, ValidationError
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, TextAreaField
+from wtforms.validators import InputRequired, Length, Email, EqualTo, Regexp, ValidationError, DataRequired
 
 #@aylinRsl
 # Email DOmains der verschiedenen berliner Hochschulen: Konstante für den Validator
@@ -52,3 +52,9 @@ class LoginForm(FlaskForm):
     # TODO überprüfen
     # remember = BooleanField('Anmeldung speichern')
     submit = SubmitField('Einloggen')
+
+class ContactForm(FlaskForm):
+    email = StringField('E-Mail', validators=[DataRequired(), Email()])
+    subject = StringField('Betreff', validators=[DataRequired()])
+    message = TextAreaField('Dein Anliegen', validators=[DataRequired()])
+    submit = SubmitField('Absenden')
