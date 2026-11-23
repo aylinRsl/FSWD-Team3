@@ -33,3 +33,9 @@ def login_required(view):
             return redirect(url_for('login'))
         return view(**kwargs)
     return wrapped_view       
+
+def get_category_choices():
+    """Liest alle Kategorien für das Auswahlfeld aus der DB."""
+    rows = get_db().execute('SELECT id, name FROM category ORDER BY name').fetchall()
+    return [(row['id'], row['name']) for row in rows]
+
