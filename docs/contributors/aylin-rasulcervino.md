@@ -74,14 +74,12 @@ Next, provide a **step-by-step walkthrough** of owned vertical feature(s) that e
 
 ## Design Decisions that I led
 
-- [00: Title](../design-decisions/dd-00.md)
-- [01: How to access the database - SQL or SQLAlchemy](../design-decisions/dd-01.md)
+- [00: Privatchat](../design-decisions/dd-00.md)
+- [01: Speicherung der post_helper in der DB](../design-decisions/dd-01.md)
 
 ---
 
 ## AI Directory
-
-[You must maintain a comprehensive AI Directory, as per [FB1 Regulations on Generative AI Use](../assets/pdf/FB1_KI_Regelung_DE_ENG.pdf). "Catch-all" disclosure (like "AI Tool used for bugfixing") is generally not sufficient. You may list an *AI Tool* multiple times, e.g., if you have used it for different purposes / in different parts of your project. Any use of Agentic AI is **strictly prohibited**.]
 
 | #   | AI Tool | Purpose of Use | Affected Sections (Code + Docs) | Remarks, Procedure, Prompts |
 | :-- | :--     | :--            | :--                             | :--                         |
