@@ -1,4 +1,4 @@
---@aylinRsl
+
 -- Stammdaten, die in der DB schon enthalten sind
 
 -- Codes für die jeweiligen Wohnheime sind gehasht in der dorm-Tabelle enthalten
