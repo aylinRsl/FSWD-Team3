@@ -22,3 +22,14 @@ def load_logged_in_user():
         g.user = get_db().execute(
             'SELECT * FROM user WHERE id = ?', (user_id,)
         ).fetchone()
+
+ 
+def login_required(view):
+    """Decorator: leitet nicht eingeloggte Personen zum Login um."""
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.get('user') is None:
+            flash('Bitte logge dich zuerst ein.', 'warning')
+            return redirect(url_for('login'))
+        return view(**kwargs)
+    return wrapped_view       
