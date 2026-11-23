@@ -47,7 +47,7 @@ def logout():
 def anfrage():
     return render_template('anfragen.html')
 
-@app.route('/nachrichten')
+@app.route('/chat')
 def nachrichten():
     return render_template('chat.html')
 
