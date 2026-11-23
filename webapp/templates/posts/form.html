@@ -5,3 +5,15 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h1 class="mb-4">{{ heading }}</h1>
+        
+        <form method="POST" action="" novalidate>
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                <div class="form-label">{{ form.type.label.text }}</div>
+                {% for option in form.type %}
+                    <div class="form-check form-check-inline">
+                        {{ option(class="form-check-input") }}
+                        {{ option.label(class="form-check-label") }}
+                    </div> 
+    
