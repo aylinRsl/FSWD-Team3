@@ -86,3 +86,14 @@ reward_note = StringField('Details zur Gegenleistung (optional)',
                               filters=[strip_text],
                               validators=[Length(max=200)])
 
+submit = SubmitField('Anfrage veröffentlichen')
+
+# Eigener Validator: WTForms ruft validate_<feldname> automatisch auf
+def validate_reward_note(self, field):
+        if self.reward_type.data == 'money' and not field.data:
+            raise ValidationError('Bitte gib bei Geld kurz an, wie viel du anbietest.')
+
+
+class ConfirmForm(FlaskForm):
+    """Leeres Formular nur für das CSRF-Token (Löschen, Status ändern)."""
+    submit = SubmitField('Bestätigen')
