@@ -63,5 +63,10 @@ def my_posts():
     if post_type in ('request', 'offer'):
         sql += ' AND p.type = ?'
         params.append(post_type)
-    
+    sql += ' ORDER BY p.created_at DESC, p.id DESC'
+
+    posts = get_db().execute(sql, params).fetchall()
+    return render_template('posts/my_posts.html', posts=posts,
+                           post_type=post_type, csrf_form=ConfirmForm())
+
 
