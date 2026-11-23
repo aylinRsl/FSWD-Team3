@@ -48,3 +48,20 @@ def get_own_post(post_id):
     if post['author_id'] != g.user['id']:
         abort(403)
     return post
+
+# READ: eigene Beiträge (optional gefiltert: ?typ=request oder ?typ=offer)
+@bp.route('/meine')
+@login_required
+def my_posts():
+    post_type = request.args.get('typ')
+    sql = ('SELECT p.id, p.title, p.description, p.type, p.status, '
+           '       p.reward_type, p.reward_note, p.created_at, '
+           '       c.name AS category_name '
+           'FROM post p JOIN category c ON p.category_id = c.id '
+           'WHERE p.author_id = ?')
+    params = [g.user['id']]
+    if post_type in ('request', 'offer'):
+        sql += ' AND p.type = ?'
+        params.append(post_type)
+    sql += ' ORDER BY p.created_at DESC, p.id DESC'
+    
