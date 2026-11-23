@@ -63,5 +63,5 @@ def my_posts():
     if post_type in ('request', 'offer'):
         sql += ' AND p.type = ?'
         params.append(post_type)
-    sql += ' ORDER BY p.created_at DESC, p.id DESC'
     
+
