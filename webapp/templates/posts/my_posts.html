@@ -52,3 +52,23 @@
                         {% if post['reward_note'] %}({{ post['reward_note'] }}){% endif %}
                     </p>
                 {% endif %}
+
+  <div class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-sm btn-outline-primary"
+                       href="{{ url_for('posts.edit', post_id=post['id']) }}">Bearbeiten</a>
+
+                    <form method="POST" action="{{ url_for('posts.toggle_status', post_id=post['id']) }}">
+                        {{ csrf_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-outline-secondary">
+                            {{ 'Als erledigt markieren' if post['status'] == 'open' else 'Wieder öffnen' }}
+                        </button>
+                    </form>
+
+                    <a class="btn btn-sm btn-outline-danger"
+                       href="{{ url_for('posts.delete', post_id=post['id']) }}">Löschen</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
