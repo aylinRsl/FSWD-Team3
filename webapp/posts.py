@@ -112,10 +112,28 @@ def toggle_status(post_id):
     flash('Status wurde geändert.', 'info')
     return redirect(url_for('posts.my_posts'))
 
-
-# DELETE: eigenen Beitrag löschen (Bestätigungsseite statt JavaScript)
+# eigenen Beitrag löschen 
 @bp.route('/<int:post_id>/loeschen', methods=['GET', 'POST'])
 @login_required
 def delete(post_id):
     post = get_own_post(post_id)
     db = get_db()
+
+  
+    # Design Decision 03: Beiträge mit Nachrichten nicht löschen (ON DELETE CASCADE
+    # würde sonst alle Chats mitlöschen), stattdessen auf "erledigt" setzen.
+    message_count = db.execute('SELECT COUNT(*) FROM message WHERE post_id = ?',
+                               (post_id,)).fetchone()[0]
+    if message_count > 0:
+        flash('Zu diesem Beitrag gibt es schon Nachrichten. '
+              'Setze ihn bitte auf "erledigt", statt ihn zu löschen.', 'warning')
+        return redirect(url_for('posts.my_posts'))
+
+    form = ConfirmForm()
+    if form.validate_on_submit():
+        db.execute('DELETE FROM post WHERE id = ? AND author_id = ?', (post_id, g.user['id']))
+        db.commit()
+        flash('Dein Beitrag wurde gelöscht.', 'success')
+        return redirect(url_for('posts.my_posts'))
+
+    return render_template('posts/delete.html', post=post, form=form)  
