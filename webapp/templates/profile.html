@@ -6,36 +6,48 @@
 
     <h2>Mein Profil</h2>
 
-    <div class="card mt-4 p-4">
-
-        <h4>Max Mustermann</h4>
-
-        <hr>
-
-        <h5>Meine Anfragen</h5>
-        <ul>
-            <li>Suche Lerngruppe für Mathematik</li>
-            <li>Suche Lernpartner für Informatik</li>
-        </ul>
-
-        <hr>
-
-        <h5>Meine Angebote</h5>
-        <ul>
-            <li>Fahrrad-Reparatur</li>
-            <li>Englisch-Nachhilfe</li>
-        </ul>
-
-        <hr>
-
-        <h5>Meine Chats</h5>
-        <ul>
-            <li>Anna Müller</li>
-            <li>Max Schmidt</li>
-        </ul>
-
+<! -- Profilinformationen anzeigen -->
+    <div class="card mt-4 p-4"></div>
+        <div class="card border-2 border-secondary bg-light mb-4">
+        <div class="card-body p-4">
+            <h2>Max Mustermann</h2>
+            <p class="small text-muted">Wohnheime A</p>
+        </div>
+        </div>  
     </div>
 
+     <div class="row g-3 mt-3">
+        <div class="col-md-4">
+                <div class="profile-box">
+                    <h5>Meine Anfragen</h5>
+                    <hr>
+                    <p>Hilfe beim Umzug am Samstag</p>
+                    <p>Suche Lerngruppe für Mathematik</p>
+                    <a href="anfragenerstellen">+ Neue Anfrage</a>
+                </div>
+            </div>
+        
+         <div class="col-md-4">
+                <div class="profile-box">
+                    <h5>Meine Angebote</h5>
+                    <hr>
+                    <p>Fahrrad-Reparatur</p>
+                    <p>Englisch-Nachhilfe</p>
+                    <a href="anfragenerstellen">+ Neues Angebot</a>
+                </div>
+            </div>
+
+        <div class="col-md-4">
+                <div class="profile-box">
+                    <h5>Meine Chats</h5>
+                    <hr>
+                    <p>Anna Müller</p>
+                    <p>Max Schmidt</p>
+                    <a href="chat">Alle Chats öffnen →</a>
+
+                </div>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
