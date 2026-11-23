@@ -18,7 +18,19 @@
         <a href="{{ url_for('posts.my_posts', typ='offer') }}">Ich biete an</a>
     </div>
 
-    {% if not posts %}
+  {% if not posts %}
         <p class="text-muted">Du hast hier noch keine Beiträge.
             <a href="{{ url_for('posts.create') }}">Jetzt einen erstellen</a>.</p>
     {% endif %}
+
+    {% for post in posts %}
+        <div class="card mb-3 {% if post['status'] == 'done' %}opacity-75{% endif %}">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h2 class="h5 card-title mb-1">{{ post['title'] }}</h2>
+                    {% if post['status'] == 'open' %}
+                        <span class="badge text-bg-success align-self-start">offen</span>
+                    {% else %}
+                        <span class="badge text-bg-secondary align-self-start">erledigt</span>
+                    {% endif %}
+                </div> 
