@@ -71,3 +71,7 @@ title = StringField('Titel', filters=[strip_text],
 description = TextAreaField('Beschreibung', filters=[strip_text],
                                 validators=[Optional(), Length(max=2000)])
 
+ # Die Auswahl (choices) wird in posts.py aus der Tabelle category geladen
+category_id = SelectField('Kategorie', coerce=int,
+                              validators=[InputRequired()])
+
