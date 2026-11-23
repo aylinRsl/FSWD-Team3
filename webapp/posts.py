@@ -70,3 +70,26 @@ def my_posts():
                            post_type=post_type, csrf_form=ConfirmForm())
 
 
+# CREATE: neuen Beitrag anlegen
+@bp.route('/neu', methods=['GET', 'POST'])
+@login_required
+def create():
+    form = PostForm()
+    form.category_id.choices = get_category_choices()
+
+ 
+    if request.method == 'GET' and request.args.get('typ') in ('request', 'offer'):
+        form.type.data = request.args.get('typ')
+
+    if form.validate_on_submit():
+        db = get_db()
+        db.execute(
+            'INSERT INTO post (title, description, type, reward_type, '
+            '                  reward_note, author_id, dormitory_id, category_id) '
+            'VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            (form.title.data, form.description.data, form.type.data,
+             form.reward_type.data, form.reward_note.data,
+             g.user['id'], g.user['dormitory_id'], form.category_id.data)
+        )   
+
+
