@@ -91,10 +91,8 @@ def create():
              form.reward_type.data, form.reward_note.data,
              g.user['id'], g.user['dormitory_id'], form.category_id.data)
         )   
+        db.commit()
+        flash('Dein Beitrag wurde veröffentlicht.', 'success') 
+        return redirect(url_for('posts.my_posts'))
 
-db.commit()
-flash('Dein Beitrag wurde veröffentlicht.', 'success')
-
-return redirect(url_for('posts.my_posts'))
-
-return render_template('posts/form.html', form=form, heading='Anfrage erstellen')
+    return render_template('posts/form.html', form=form, heading='Anfrage erstellen')
