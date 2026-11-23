@@ -17,6 +17,9 @@ app.config.from_mapping(
 app.cli.add_command(database.init_db)
 app.teardown_appcontext(database.close_db)
 
+# Feature "CRUD für Beiträge" Routen aus posts.py einbinden
+import posts
+app.register_blueprint(posts.bp)
 
 @app.route('/')
 @app.route('/home')
