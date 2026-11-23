@@ -92,4 +92,9 @@ def create():
              g.user['id'], g.user['dormitory_id'], form.category_id.data)
         )   
 
+db.commit()
+flash('Dein Beitrag wurde veröffentlicht.', 'success')
 
+return redirect(url_for('posts.my_posts'))
+
+return render_template('posts/form.html', form=form, heading='Anfrage erstellen')
