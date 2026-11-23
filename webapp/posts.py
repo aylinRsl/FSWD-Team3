@@ -108,3 +108,14 @@ def toggle_status(post_id):
     db = get_db()
     db.execute("UPDATE post SET status = CASE status WHEN 'open' THEN 'done' ELSE 'open' END "
                "WHERE id = ? AND author_id = ?", (post_id, g.user['id']))
+    db.commit()
+    flash('Status wurde geändert.', 'info')
+    return redirect(url_for('posts.my_posts'))
+
+
+# DELETE: eigenen Beitrag löschen (Bestätigungsseite statt JavaScript)
+@bp.route('/<int:post_id>/loeschen', methods=['GET', 'POST'])
+@login_required
+def delete(post_id):
+    post = get_own_post(post_id)
+    db = get_db()
