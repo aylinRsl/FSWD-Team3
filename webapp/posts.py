@@ -98,6 +98,32 @@ def create():
     return render_template('posts/form.html', form=form, heading='Anfrage erstellen')
 
 
+
+# UPDATE: eigenen Beitrag bearbeiten
+@bp.route('/<int:post_id>/bearbeiten', methods=['GET', 'POST'])
+@login_required
+def edit(post_id):
+    post = get_own_post(post_id)
+    form = PostForm(data=dict(post))      # GET: mit alten Werten vorausfüllen
+    form.category_id.choices = get_category_choices()
+    form.submit.label.text = 'Änderungen speichern'
+
+    if form.validate_on_submit():
+        db = get_db()
+        db.execute(
+            'UPDATE post SET title = ?, description = ?, type = ?, reward_type = ?, '
+            '                reward_note = ?, category_id = ? '
+            'WHERE id = ? AND author_id = ?',
+            (form.title.data, form.description.data, form.type.data,
+             form.reward_type.data, form.reward_note.data, form.category_id.data,
+             post_id, g.user['id'])
+        )
+        db.commit()
+        flash('Dein Beitrag wurde aktualisiert.', 'success')
+        return redirect(url_for('posts.my_posts'))
+
+    return render_template('posts/form.html', form=form, post=post, heading='Beitrag bearbeiten')
+
 # UPDATE: Status offen <-> erledigt
 @bp.route('/<int:post_id>/status', methods=['POST'])
 @login_required
