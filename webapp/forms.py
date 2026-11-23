@@ -78,10 +78,11 @@ category_id = SelectField('Kategorie', coerce=int,
 reward_type = SelectField('Gegenleistung',
                               choices=[('none', 'Keine'),
                                        ('thanks', 'Ein Dankeschön (z. B. Essen)'),
-                                       ('money', 'Kleiner Geldbetrag')]
+                                       ('money', 'Kleiner Geldbetrag')],
                               default='none')
 
 # bewusst kein Optional(): sonst würde validate_reward_note nicht laufen
-reward_note = StringField('Details zur Gegenleistung (optional)'
-                              filters=[strip_text]
+reward_note = StringField('Details zur Gegenleistung (optional)',
+                              filters=[strip_text],
                               validators=[Length(max=200)])
+
