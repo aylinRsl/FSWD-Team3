@@ -75,3 +75,13 @@ description = TextAreaField('Beschreibung', filters=[strip_text],
 category_id = SelectField('Kategorie', coerce=int,
                               validators=[InputRequired()])
 
+reward_type = SelectField('Gegenleistung',
+                              choices=[('none', 'Keine'),
+                                       ('thanks', 'Ein Dankeschön (z. B. Essen)'),
+                                       ('money', 'Kleiner Geldbetrag')],
+                              default='none')
+
+# bewusst kein Optional(): sonst würde validate_reward_note nie laufen
+reward_note = StringField('Details zur Gegenleistung (optional)',
+                              filters=[strip_text],
+                              validators=[Length(max=200)])
