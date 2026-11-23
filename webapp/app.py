@@ -29,10 +29,31 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-    #erfolgreich Daten eingegeben flash message
+    db_con = database.get_db()
+    
+    dorms = db_con.execute('SELECT id, name FROM dormitory ORDER BY name;').fetchall()
+    form.dormitory.choices = [(d['id'], d['name']) for d in dorms]
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
+        dorm = db_con.execute(
+            #TODO: SQLi proof machen
+            'SELECT verification_code FROM dormitory WHERE id = ?;'
+            [form.dormitory.data]
+        ).fetchone()
+        
+        if form.verification_code.data != dorm['verification_code']:
+            form.verification_code.errors.append('Falscher Wohnheim-Code.')
+        else:
+            try:
+                db_con.execute(
+                    'INSERT INTO user (username, email, password_hash, is_verified, dormitory_id)'
+                    'VALUES (?, ?, ?, 1, ?)'
+                )
+                db_con.commit()
+                flash('Registrierung erfolgreich. Bitte einloggen.', 'success')
+                return redirect(url_for('home'))
+            except sqlite3.IntegrityError:
+                flash('Username oder Email ist bereits vergeben', 'warning')
+                
     return render_template('register.html', title='Registrieren', form=form)
 
 @app.route('/login')

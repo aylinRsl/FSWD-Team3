@@ -35,7 +35,10 @@ class RegistrationForm(FlaskForm):
 
     dormitory = SelectField('Wohnheim', coerce=int,
                         validators=[InputRequired()])
-    #TODO: Verification Codes
+    
+    verification_code = StringField('Wohnheim Code', 
+                        validators=[InputRequired()] )
+    
     password = PasswordField('Password',
                         validators=[InputRequired()])
     

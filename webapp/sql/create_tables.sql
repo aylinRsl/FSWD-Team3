@@ -1,7 +1,6 @@
 CREATE TABLE dormitory (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    city TEXT NOT NULL,
     verification_code TEXT NOT NULL
 );
 
