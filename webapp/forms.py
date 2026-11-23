@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, TextAreaField
-from wtforms.validators import InputRequired, Length, Email, EqualTo, Regexp, ValidationError, DataRequired
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, RadioField, TextAreaField
+from wtforms.validators import InputRequired, DataRequired, Length, Email, EqualTo, Regexp, ValidationError, Optional
 
 #@aylinRsl
 # Email DOmains der verschiedenen berliner Hochschulen: Konstante für den Validator
@@ -52,6 +52,51 @@ class LoginForm(FlaskForm):
     # TODO überprüfen
     # remember = BooleanField('Anmeldung speichern')
     submit = SubmitField('Einloggen')
+
+# Formulare für das Feature "CRUD für Beiträge" (Narin)
+def strip_text(value):
+    """Filter: entfernt Leerzeichen am Anfang/Ende ("   " wird zu "")."""
+    return value.strip() if isinstance(value, str) else value
+
+class PostForm(FlaskForm):
+    # "Ich suche ..." / "Ich biete an ..."
+    type = RadioField('Was möchtest du?',
+                      choices=[('request', 'Ich suche …'),
+                               ('offer', 'Ich biete an …')],
+                      validators=[InputRequired(message='Bitte wähle suchen oder anbieten.')])
+
+    title = StringField('Titel', filters=[strip_text],
+                        validators=[DataRequired(message='Bitte gib einen Titel ein.'),
+                                    Length(max=100)])
+
+    description = TextAreaField('Beschreibung', filters=[strip_text],
+                                validators=[Optional(), Length(max=2000)])
+
+    # Die Auswahl (choices) wird in posts.py aus der Tabelle category geladen
+    category_id = SelectField('Kategorie', coerce=int,
+                              validators=[InputRequired()])
+
+    reward_type = SelectField('Gegenleistung',
+                              choices=[('none', 'Keine'),
+                                       ('thanks', 'Ein Dankeschön (z. B. Essen)'),
+                                       ('money', 'Kleiner Geldbetrag')],
+                              default='none')
+
+    # bewusst kein Optional(): sonst würde validate_reward_note nicht laufen
+    reward_note = StringField('Details zur Gegenleistung (optional)',
+                              filters=[strip_text],
+                              validators=[Length(max=200)])
+
+    submit = SubmitField('Anfrage veröffentlichen')
+
+    # Eigener Validator: WTForms ruft validate_<feldname> automatisch auf
+    def validate_reward_note(self, field):
+        if self.reward_type.data == 'money' and not field.data:
+            raise ValidationError('Bitte gib bei Geld kurz an, wie viel du anbietest.')
+
+class ConfirmForm(FlaskForm):
+    """Leeres Formular nur für das CSRF-Token (Löschen, Status ändern)."""
+    submit = SubmitField('Bestätigen')
 
 class ContactForm(FlaskForm):
     email = StringField('E-Mail', validators=[DataRequired(), Email()])
