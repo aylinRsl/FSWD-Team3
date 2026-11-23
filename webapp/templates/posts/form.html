@@ -37,13 +37,7 @@
                     <div class="text-danger small">{{ error }}</div>
                 {% endfor %}
             </div>
-          <div class="mb-3">
-                {{ form.description.label(class="form-label") }}
-                {{ form.description(class="form-control", rows=5) }}
-                {% for error in form.description.errors %}
-                    <div class="text-danger small">{{ error }}</div>
-                {% endfor %}
-            </div>
+          
 
             <div class="mb-3">
                 {{ form.category_id.label(class="form-label") }}
@@ -67,4 +61,14 @@
                 </div>
             </div>   
            
+           
+            <div class="d-flex gap-2">
+                {{ form.submit(class="btn btn-success") }}
+                <a class="btn btn-outline-secondary" href="{{ url_for('posts.my_posts') }}">Abbrechen</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock content %}
     
