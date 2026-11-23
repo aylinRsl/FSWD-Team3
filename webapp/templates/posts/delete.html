@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}StudyNet - Beitrag löschen{% endblock %}
+{% block content %}
+<div class="container my-4">
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1 class="h3 mb-3">Beitrag wirklich löschen?</h1>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h2 class="h5">{{ post['title'] }}</h2>
+                <p class="mb-0 text-muted">{{ post['description'] or '' }}</p>
+            </div>
+        </div>
+        <p>Das Löschen kann nicht rückgängig gemacht werden.</p>
