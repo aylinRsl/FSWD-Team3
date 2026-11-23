@@ -60,6 +60,10 @@ def profile():
 def about():
     return render_template('about.html')
 
+@app.route('/kontaktformular')
+def kontaktformular():
+    return render_template('kontaktformular.html')
+
 @app.route('/impressum')
 def impressum():
     return render_template('impressum.html')

@@ -56,3 +56,11 @@ input, button {
     padding: 1.5rem;
     margin-top: 1.5rem;
 }
+
+.contact-form {
+    background-color: var(--color-highlight);
+    border: 1px solid var(--color-accent1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
