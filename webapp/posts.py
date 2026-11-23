@@ -40,11 +40,11 @@ def get_category_choices():
     return [(row['id'], row['name']) for row in rows]
 
 
-def get_own_post(post_id)
+def get_own_post(post_id):
     """Lädt einen Beitrag. 404 = gibt es nicht, 403 = gehört jemand anderem."""
     post = get_db().execute('SELECT * FROM post WHERE id = ?', (post_id,)).fetchone()
     if post is None:
         abort(404)
-    if post['author_id'] != g.user['id']
+    if post['author_id'] != g.user['id']:
         abort(403)
     return post
