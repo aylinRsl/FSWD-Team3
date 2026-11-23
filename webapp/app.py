@@ -29,8 +29,10 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-    db_con = database.get_db_con()
+    db_con = database.get_db()
     
+    dorms = db_con.execute('SELECT id, name FROM dormitory ORDER BY name;').fetchall()
+    form.dormitory.choices = [(d['id'], d['name']) for d in dorms]
     if form.validate_on_submit():
         dorm = db_con.execute(
             #TODO: SQLi proof machen
