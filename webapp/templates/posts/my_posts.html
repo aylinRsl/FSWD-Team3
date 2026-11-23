@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}StudyNet - Meine Beiträge{% endblock %}
+{% block content %}
+<div class="container my-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>
+            {% if post_type == 'request' %}Meine Anfragen
+            {% elif post_type == 'offer' %}Meine Angebote
+            {% else %}Meine Beiträge{% endif %}
+        </h1>
+        <a class="btn btn-success" href="{{ url_for('posts.create') }}">+ Neuer Beitrag</a>
+    </div>
