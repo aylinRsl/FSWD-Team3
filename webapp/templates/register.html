@@ -1,14 +1,26 @@
 {# @aylinRsl #}
+{# Registrierungsseite: erbt Grundgerüst (Head, Navbar, Footer) von layout.html #}
 {% extends "layout.html" %}
+
+{# Text im Browser-Tab #}
 {% block title %}StudyNet - Registrieren{% endblock %}
+
 {% block content %}
+{# Bootstrap-Grid: Formular mittig, ab Tablet-Breite halbe Seitenbreite #}
 <div class="row justify-content-center">
     <div class="col-md-6">
+
+        {# action="" = an dieselbe URL (/register) senden, POST = Daten unsichtbar im Request-Body #}
         <form method="POST" action="">
+
+            {# Verstecktes CSRF-Token (Sicherheit), ohne das schlägt validate_on_submit() fehl #}
             {{ form.hidden_tag() }}
+
             <fieldset>
                 <legend class="border-bottom mb-4">Jetzt beitreten</legend>
 
+                {# ===== Username ===== #}
+                {# Muster für jedes Feld: Label, Eingabefeld, Fehlermeldungen (nur nach fehlgeschlagenem Absenden gefüllt) #}
                 <div class="mb-3">
                     {{ form.username.label(class="form-label") }}
                     {{ form.username(class="form-control form-control-lg") }}
@@ -17,6 +29,7 @@
                     {% endfor %}
                 </div>
 
+                {# ===== Uni-E-Mail (Domain wird in forms.py per uni_email geprüft) ===== #}
                 <div class="mb-3">
                     {{ form.email.label(class="form-label") }}
                     {{ form.email(class="form-control form-control-lg") }}
@@ -25,6 +38,8 @@
                     {% endfor %}
                 </div>
 
+                {# ===== Wohnheim-Dropdown ===== #}
+                {# SelectField wird als <select> dargestellt; die Auswahl (choices) setzt die Route aus der DB #}
                 <div class="mb-3">
                     {{ form.dormitory.label(class="form-label") }}
                     {{ form.dormitory(class="form-select form-select-lg") }}
@@ -33,6 +48,16 @@
                     {% endfor %}
                 </div>
 
+                {# ===== Wohnheim-Code (wird in der Route gegen den Hash des gewählten Wohnheims geprüft) ===== #}
+                <div class="mb-3">
+                    {{ form.verification_code.label(class="form-label") }}
+                    {{ form.verification_code(class="form-control form-control-lg") }}
+                    {% for error in form.verification_code.errors %}
+                        <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                {# ===== Passwort (PasswordField: Eingabe als Punkte, wird nach Fehlern nicht wieder ausgefüllt) ===== #}
                 <div class="mb-3">
                     {{ form.password.label(class="form-label") }}
                     {{ form.password(class="form-control form-control-lg") }}
@@ -41,6 +66,7 @@
                     {% endfor %}
                 </div>
 
+                {# ===== Passwort bestätigen (EqualTo('password') in forms.py) ===== #}
                 <div class="mb-3">
                     {{ form.confirm_password.label(class="form-label") }}
                     {{ form.confirm_password(class="form-control form-control-lg") }}
@@ -50,16 +76,20 @@
                 </div>
             </fieldset>
 
+            {# ===== Absenden-Button (btn-success in StudyNet-Grün, siehe style.css) ===== #}
             <div class="mb-3">
                 {{ form.submit(class="btn btn-success") }}
             </div>
         </form>
 
+        {# ===== Link zum Login für bereits registrierte User ===== #}
+        {# url_for nutzt den Funktionsnamen der Route, nicht die URL #}
         <div class="border-top pt-3">
             <small class="text-muted">
                 Du hast bereits einen Account? <a class="ms-2" href="{{ url_for('login') }}">Einloggen</a>
             </small>
         </div>
+
     </div>
 </div>
 {% endblock content %}
