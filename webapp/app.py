@@ -1,7 +1,7 @@
 import os
 import database 
 import functools
-from forms import RegistrationForm, LoginForm
+from forms import ContactForm, RegistrationForm, LoginForm
 from flask import Flask, render_template, url_for, flash, redirect, session, g
 from werkzeug.security import check_password_hash 
 
@@ -23,10 +23,6 @@ app.teardown_appcontext(database.close_db)
 def home():
     return render_template('home.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -46,6 +42,31 @@ def logout():
     session.clear()
     flash('Du wurdest ausgeloggt.', 'info')
     redirect(url_for('login'))
+    
+@app.route('/anfragen')
+def anfrage():
+    return render_template('anfragen.html')
+
+@app.route('/chat')
+def nachrichten():
+    return render_template('chat.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+# Statische Seiten im Footer / Nav
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/kontaktformular', methods=['GET', 'POST'])
+def kontaktformular():
+    form = ContactForm()
+    if form.validate_on_submit():
+        flash('Deine Nachricht wurde gesendet!', 'success')
+        return redirect(url_for('kontaktformular'))
+    return render_template('kontaktformular.html', form=form)
 
 @app.route('/impressum')
 def impressum():
@@ -59,6 +80,4 @@ def datenschutz():
 def community_richtlinien():
     return render_template('community-richtlinien.html')
 
-@app.route('/anfragen')
-def anfrage():
-    return render_template('anfragen.html')
+

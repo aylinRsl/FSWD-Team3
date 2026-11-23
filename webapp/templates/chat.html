@@ -1,0 +1,53 @@
+{% extends "layout.html" %} {# Template Vererbung  #}
+{% block title %}StudyNet - Chat{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Nachrichten</h2>
+
+    <div class="row">
+
+        <!-- Linke Seite: Chat-Liste -->
+        <div class="col-md-4">
+            <h5>Deine Chats</h5>
+
+            <div class="chat-container">
+
+                <!-- Beispielkontakt 1 -->
+                <div class="chat-contact">
+                    <strong>Anna Müller</strong>
+                    <p>Hey, wie geht's dir?</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Rechte Seite: Geöffneter Chat -->
+        <div class="col-md-8">
+            <h5>Chat mit Anna Müller</h5>
+
+            <div class="chat-window">
+
+                <!-- Empfangene Nachricht -->
+                <div class="message received">
+                    Hey! Wie geht's dir?
+                </div>
+
+                <!-- Gesendete Nachricht -->
+                <div class="message sent">
+                    Mir geht's gut, danke! Und dir?
+                </div>
+
+            </div>
+
+            <!-- Nachrichten-Eingabe -->
+            <div class="message-input">
+                <input type="text" placeholder="Nachricht schreiben...">
+                <button type="button">Senden</button>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}

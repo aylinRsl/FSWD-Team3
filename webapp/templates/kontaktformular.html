@@ -1,0 +1,53 @@
+{% extends "layout.html" %} {# Template Vererbung  #}
+{% block title %}StudyNet - Kontaktformular{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <form method="POST" action="" class="contact-form">
+            {{ form.hidden_tag() }}
+
+            <fieldset>
+                <legend class="border-bottom mb-4">
+                    Kontaktformular
+                </legend>
+
+                <!-- E-Mail -->
+                <div class="mb-3">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control form-control-lg") }}
+                    {% for error in form.email.errors %}
+                        <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- Betreff -->
+                <div class="mb-3">
+                    {{ form.subject.label(class="form-label") }}
+                    {{ form.subject(class="form-control form-control-lg") }}
+                    {% for error in form.subject.errors %}
+                        <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- Anliegen -->
+                <div class="mb-3">
+                    {{ form.message.label(class="form-label") }}
+                    {{ form.message(class="form-control", rows="6") }}
+                    {% for error in form.message.errors %}
+                        <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                {{ form.submit(class="btn btn-success") }}
+            </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock content %}

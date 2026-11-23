@@ -45,3 +45,22 @@ input, button {
     border: 1px solid black;
     padding: 1rem;
 }
+
+.chat-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.profile-card {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.contact-form {
+    background-color: var(--color-highlight);
+    border: 1px solid var(--color-accent1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
