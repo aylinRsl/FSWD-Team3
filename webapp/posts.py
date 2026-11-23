@@ -108,6 +108,3 @@ def toggle_status(post_id):
     db = get_db()
     db.execute("UPDATE post SET status = CASE status WHEN 'open' THEN 'done' ELSE 'open' END "
                "WHERE id = ? AND author_id = ?", (post_id, g.user['id']))
-    db.commit()
-    flash('Status wurde geändert.', 'info')
-    return redirect(url_for('posts.my_posts'))
