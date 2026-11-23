@@ -120,7 +120,7 @@ def delete(post_id):
     db = get_db()
 
   
-    # Design Decision 03: Beiträge mit Nachrichten nicht löschen (ON DELETE CASCADE
+    # Beiträge mit Nachrichten nicht löschen (ON DELETE CASCADE
     # würde sonst alle Chats mitlöschen), stattdessen auf "erledigt" setzen.
     message_count = db.execute('SELECT COUNT(*) FROM message WHERE post_id = ?',
                                (post_id,)).fetchone()[0]
