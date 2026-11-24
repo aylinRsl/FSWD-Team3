@@ -3,9 +3,19 @@ import database
 import functools
 from forms import ContactForm, RegistrationForm, LoginForm
 from flask import Flask, render_template, url_for, flash, redirect, session, g
+from flask_mail import Mail, Message
 from werkzeug.security import check_password_hash 
 
 app = Flask(__name__)
+app.config['MAIL_SERVER'] = 'localhost'
+app.config['MAIL_PORT'] = 25
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = None
+app.config['MAIL_PASSWORD'] = None
+app.config['MAIL_DEFAULT_SENDER'] = None
+
+mail = Mail(app)
 
 #secret key für auth.py, generiert mit python secrets.token_hex
 app.config['SECRET_KEY'] = 'b9e2ee9c9612c20fe2aeec1149e730b9'
@@ -88,6 +98,20 @@ def about():
 def kontaktformular():
     form = ContactForm()
     if form.validate_on_submit():
+        email = form.email.data
+        subject = form.subject.data
+        message = form.message.data
+
+        # E-Mail an den Administrator senden
+        #TODO: E-Mail-Adresse des Administrators anpassen
+        msg = Message(subject=subject, 
+                      recipients=['admin@example.com'],
+                      body=f""""
+                        Von: {email}
+                        Betreff: {subject}
+                        Anliegen: {message}
+                      """)
+        mail.send(msg)
         flash('Deine Nachricht wurde gesendet!', 'success')
         return redirect(url_for('kontaktformular'))
     return render_template('kontaktformular.html', form=form)
