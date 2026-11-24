@@ -103,7 +103,7 @@ def kontaktformular():
         message = form.message.data
 
         # E-Mail an den Administrator senden
-        #TODO: E-Mail-Adresse des Administrators anpassen
+        #TODO: E-Mail-Adresse des Administrators anpassen, zur Überlegung ob E-Mail der Admins direkt in Code schreiben
         msg = Message(subject=subject, 
                       recipients=['admin@example.com'],
                       body=f""""

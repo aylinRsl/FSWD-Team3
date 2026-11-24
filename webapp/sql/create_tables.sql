@@ -4,6 +4,7 @@ CREATE TABLE dormitory (
     verification_code TEXT NOT NULL
 );
 
+#TODO: to discuss user role as admin or user
 CREATE TABLE user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
