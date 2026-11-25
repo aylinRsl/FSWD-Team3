@@ -1,9 +1,8 @@
 /*TODO: updaten, auf Bootstrap anpassen sowie colors.css */
 body {
     font-family: sans-serif;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem;
+    margin: 0;
+    background-color: var(--color-highlight);
 }
 
 .logo a {
@@ -63,4 +62,35 @@ input, button {
     border-radius: 12px;
     padding: 1.5rem;
     margin-top: 1.5rem;
+}
+
+.studynet-navigation {
+    background-color: white;
+    border-bottom: 1px solid var(--color-accent1);
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+}
+
+.studynet-create-button {
+    background-color: var(--color-button);
+    color: white;
+    font-weight: 400;
+    border-radius: 6px;
+    padding: 0.1rem 0.5rem;
+}
+
+.studynet-create-button:hover {
+    background-color: var(--color-shadow);
+    color: white;
+}
+
+.studynet-navigation .nav-link,
+.studynet-navigation .studynet-create-button {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.studynet-navigation .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
 }

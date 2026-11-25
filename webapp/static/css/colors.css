@@ -1,7 +1,9 @@
 :root {
   --color-main: rgb(61, 107, 53);
   --color-shadow: rgb(38, 71, 33);
-  --color-highlight: rgb(246, 247, 244);
+  --color-highlight: #f8f5ed;
+  --color-button: #23452e; 
+  --color-button-hover: #193522;
   --color-accent1: rgb(214, 228, 208);
   --color-accent2: rgb(122, 163, 96);
 } 
