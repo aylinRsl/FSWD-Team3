@@ -57,9 +57,6 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Einloggen')
 
 # Formulare für das Feature "CRUD für Beiträge" (Narin)
-def strip_text(value):
-    """Filter: entfernt Leerzeichen am Anfang/Ende ("   " wird zu "")."""
-    return value.strip() if isinstance(value, str) else value
 
 class PostForm(FlaskForm):
     # "Ich suche ..." / "Ich biete an ..."
@@ -68,11 +65,11 @@ class PostForm(FlaskForm):
                                ('offer', 'Ich biete an …')],
                       validators=[InputRequired(message='Bitte wähle suchen oder anbieten.')])
 
-    title = StringField('Titel', filters=[strip_text],
+    title = StringField('Titel',
                         validators=[DataRequired(message='Bitte gib einen Titel ein.'),
                                     Length(max=100)])
 
-    description = TextAreaField('Beschreibung', filters=[strip_text],
+    description = TextAreaField('Beschreibung',
                                 validators=[Optional(), Length(max=2000)])
 
     # Die Auswahl (choices) wird in posts.py aus der Tabelle category geladen
@@ -87,7 +84,6 @@ class PostForm(FlaskForm):
 
     # bewusst kein Optional(): sonst würde validate_reward_note nicht laufen
     reward_note = StringField('Details zur Gegenleistung (optional)',
-                              filters=[strip_text],
                               validators=[Length(max=200)])
 
     submit = SubmitField('Anfrage veröffentlichen')
