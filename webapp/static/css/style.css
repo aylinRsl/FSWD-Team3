@@ -51,9 +51,17 @@ input, button {
     margin-top: 1.5rem;
 }
 
-.profile-card {
+.profile-box {
     padding: 1.5rem;
-    margin-top: 1.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.2s ease;
+}
+
+.profile-box:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .contact-form {
