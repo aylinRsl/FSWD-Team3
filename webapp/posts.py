@@ -128,12 +128,20 @@ def edit(post_id):
 @bp.route('/<int:post_id>/status', methods=['POST'])
 @login_required
 def toggle_status(post_id):
-    get_own_post(post_id)
+
+    post = get_own_post(post_id)
     if not ConfirmForm().validate_on_submit():   # prüft das CSRF-Token
         abort(400)
+
+    if post['status'] == 'open':
+        new_status = 'done'
+    else:
+        new_status = 'open'
+
     db = get_db()
-    db.execute("UPDATE post SET status = CASE status WHEN 'open' THEN 'done' ELSE 'open' END "
-               "WHERE id = ? AND author_id = ?", (post_id, g.user['id']))
+    db.execute('UPDATE post SET status = ? WHERE id = ? AND author_id = ?',
+               (new_status, post_id, g.user['id']))
+    
     db.commit()
     flash('Status wurde geändert.', 'info')
     return redirect(url_for('posts.my_posts'))
@@ -148,9 +156,11 @@ def delete(post_id):
   
     # Beiträge mit Nachrichten nicht löschen (ON DELETE CASCADE
     # würde sonst alle Chats mitlöschen), stattdessen auf "erledigt" setzen.
-    message_count = db.execute('SELECT COUNT(*) FROM message WHERE post_id = ?',
-                               (post_id,)).fetchone()[0]
-    if message_count > 0:
+    message = db.execute('SELECT id FROM message WHERE post_id = ?',
+                         (post_id,)).fetchone()
+    if message is not None:
+
+
         flash('Zu diesem Beitrag gibt es schon Nachrichten. '
               'Setze ihn bitte auf "erledigt", statt ihn zu löschen.', 'warning')
         return redirect(url_for('posts.my_posts'))
