@@ -12,29 +12,36 @@
 
     <title>{% block title %}StudyNet{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">1
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">
 </head>
 
 <body>
      <!-- Navigationbar aus Bootstrap kopiert (Nav)  -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Studynet</a>
+<nav class="navbar navbar-expand-lg studynet-navigation">
+  <a class="navbar-brand" href="{{ url_for('home') }}">
+  <img src="{{ url_for('static', filename='css/Images/StudyNetLogo.png') }}"
+       alt="StudyNet"
+       height="30">
+</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav"> 
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav align-items-lg-center">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('anfrage') }}">Anfragen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="{{ url_for('nachrichten') }}">Chats</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="{{ url_for('profile') }}">Profil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="btn studynet-create-button" 
+            href="{{url_for('posts.create', typ='request')}}">
+          + Anfrage erstellen
+        </a>
       </li>
     </ul>
   </div>
