@@ -7,6 +7,7 @@ from flask_mail import Mail, Message
 from werkzeug.security import check_password_hash 
 
 app = Flask(__name__)
+#TODO: Mail server und port hier als platzhälter
 app.config['MAIL_SERVER'] = 'localhost'
 app.config['MAIL_PORT'] = 25
 app.config['MAIL_USE_TLS'] = False

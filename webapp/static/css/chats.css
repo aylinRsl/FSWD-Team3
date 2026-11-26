@@ -1,0 +1,140 @@
+/* Gesamtes Chat-Layout */
+.chat-layout {
+    margin-top: 1.5rem;
+}
+
+/* Linke Chatliste */
+.chat-sidebar {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+/* Rechter Nachrichtenbereich */
+.chat-main {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+}
+
+/* Einzelner Chat-Kontakt */
+.chat-contact {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover-Effekt */
+.chat-contact:hover {
+    background-color: #e9ecef;
+}
+
+/* Aktuell ausgewählter Chat */
+.chat-contact.active {
+    background-color: #e2e8e4;
+    border-left: 4px solid #23452e;
+}
+
+/* Einzelner Chat-Kontakt */
+.chat-contact {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover-Effekt */
+.chat-contact:hover {
+    background-color: #e9ecef;
+}
+
+/* Aktuell ausgewählter Chat */
+.chat-contact.active {
+    background-color: #e2e8e4;
+    border-left: 4px solid var(--primary-color);
+}
+
+.chat-contact p {
+    margin-bottom: 0;
+    margin-top: 0.4rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Allgemeine Nachrichtenblase */
+.message {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    max-width: 70%;
+    width: fit-content;
+    font-size: 0.95rem;
+}
+
+/* Empfangene Nachrichten */
+.message.received {
+    background-color: #f1f3f5;
+    align-self: flex-start;
+}
+
+/* Gesendete Nachrichten */
+.message.sent {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+}
+
+/* Eingabebereich */
+.message-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Texteingabe */
+.message-input input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Fokus auf Eingabefeld */
+.message-input input:focus {
+    border-color: var(--color-main);
+}
+
+/* Senden-Button */
+.message-input button {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-main);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Hover-Effekt */
+.message-input button:hover {
+    opacity: 0.85;
+}
+
+.chat-header {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.chat-header h5 {
+    margin-bottom: 0.2rem;
+}
+
+.chat-header small {
+    color: #6c757d;
+}
