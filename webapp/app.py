@@ -116,17 +116,17 @@ def logout():
     redirect(url_for('login'))
     
 @app.route('/anfragen')
-@login_required
+#@login_required
 def anfrage():
     return render_template('anfragen.html')
 
 @app.route('/chat')
-@login_required
+#@login_required
 def nachrichten():
     return render_template('chat.html')
 
 @app.route('/profile')
-@login_required
+#@login_required
 def profile():
     return render_template('profile.html')
 
@@ -168,5 +168,3 @@ def datenschutz():
 @app.route('/community-richtlinien')
 def community_richtlinien():
     return render_template('community-richtlinien.html')
-
-
