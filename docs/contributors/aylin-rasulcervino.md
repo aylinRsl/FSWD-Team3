@@ -88,3 +88,9 @@ Next, provide a **step-by-step walkthrough** of owned vertical feature(s) that e
 | 03  | Claude | Hex Codes für Farben | colors.css | Bitte verschiedene Grüntöne als Hex ausgeben |
 | 04  |         |                |                                 |                             |
 | ... |         |                |                                 |                             |
+## Other sources
+TODO ordnen, labeln
+https://www.youtube.com/watch?v=UIJKdCIEXUQ&t=2302s
+https://www.geeksforgeeks.org/python/python-decorators-a-complete-guide/
+https://flask.palletsprojects.com/en/stable/tutorial/views/
+https://www.youtube.com/watch?v=8ZtInClXe1Q

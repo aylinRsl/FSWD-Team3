@@ -19,8 +19,8 @@ app.config['MAIL_DEFAULT_SENDER'] = None
 
 mail = Mail(app)
 
-#secret key für auth.py, generiert mit python secrets.token_hex
-app.config['SECRET_KEY'] = 'b9e2ee9c9612c20fe2aeec1149e730b9'
+#TODO: überprüfen, secret key auslagern
+app.config['SECRET_KEY'] = 'secret-key'
 app.secret_key = "studynet-secret-key"
 
 app.config.from_mapping(
@@ -32,6 +32,28 @@ app.teardown_appcontext(database.close_db)
 # Feature "CRUD für Beiträge" Routen aus posts.py einbinden
 import posts
 app.register_blueprint(posts.bp)
+
+# vor Requests sollen eingeloggte User aus Session geladen werden
+@app.before_request
+def load_logged_in_user():
+    user_id = session.get('user_id')
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = database.get_db().execute(
+            'SELECT id, username, email, dormitory_id FROM user WHERE id = ?;',
+            [user_id]
+        ).fetchone()
+        
+# neuer decorator, sodass nur eingeloggte User die Route verwenden können
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            flash('Bitte zuerst einloggen.', 'warning')
+            return redirect(url_for('login'))
+        return view(**kwargs)
+    return wrapped_view
 
 @app.route('/')
 @app.route('/home')
@@ -73,6 +95,18 @@ def register():
 @app.route('/login')
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        user = database.get.db().execute(
+            'SELECT id, password_hash FROM user WHERE email = ?;',
+            [form.email.data.lower()]
+        ).fetchone()
+        if user is None or not check_password_hash(user['password_hash'], form.password.data):
+            flash('Email oder Passwort ist falsch.', 'danger')
+        else:
+            session.clear()
+            session['user_id'] = user['id']
+            flash('Erfolgreich eingeloggt.', 'success')
+            return redirect(url_for('home'))
     return render_template('login.html', title='Login', form=form)
 
 @app.route('/logout')
@@ -82,14 +116,17 @@ def logout():
     redirect(url_for('login'))
     
 @app.route('/anfragen')
+@login_required
 def anfrage():
     return render_template('anfragen.html')
 
 @app.route('/chat')
+@login_required
 def nachrichten():
     return render_template('chat.html')
 
 @app.route('/profile')
+@login_required
 def profile():
     return render_template('profile.html')
 
