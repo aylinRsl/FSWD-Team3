@@ -5,8 +5,8 @@ from wtforms.validators import InputRequired, DataRequired, Length, Email, Equal
 #@aylinRsl
 # Email DOmains der verschiedenen berliner Hochschulen: Konstante für den Validator
 ALLOWED_DOMAINS = [
-    'stud.hwr-berlin.de'
-    'hwr-berlin.de'
+    'stud.hwr-berlin.de',
+    'hwr-berlin.de',
     'zedat.fu-berlin.de',      # FU
     'fu-berlin.de',            # FU 
     'student.hu-berlin.de',    # HU
@@ -30,9 +30,6 @@ class RegistrationForm(FlaskForm):
     email = StringField('Uni-E-Mail',
                         validators=[InputRequired(), Email(), uni_email])
     
-    # TODO: Wohnheime in Dorm Tabelle hinterlegen, SelectField mit Wohnheimen befüllen
-    # https://www.reddit.com/r/flask/comments/semnrv/populating_select_field_in_forms/
-
     dormitory = SelectField('Wohnheim', coerce=int,
                         validators=[InputRequired()])
     
@@ -40,7 +37,7 @@ class RegistrationForm(FlaskForm):
                         validators=[InputRequired()] )
     
     password = PasswordField('Password',
-                        validators=[InputRequired()])
+                        validators=[InputRequired(), Length(min=8)])
     
     confirm_password = PasswordField('Confirm Password',
                         validators=[InputRequired(), EqualTo('password')])

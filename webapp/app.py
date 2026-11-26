@@ -1,10 +1,11 @@
 import os
 import database 
 import functools
+import sqlite3
 from forms import ContactForm, RegistrationForm, LoginForm
 from flask import Flask, render_template, url_for, flash, redirect, session, g
 from flask_mail import Mail, Message
-from werkzeug.security import check_password_hash 
+from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 #TODO: Mail server und port hier als platzhälter
@@ -44,24 +45,26 @@ def register():
     
     dorms = db_con.execute('SELECT id, name FROM dormitory ORDER BY name;').fetchall()
     form.dormitory.choices = [(d['id'], d['name']) for d in dorms]
+    
     if form.validate_on_submit():
         dorm = db_con.execute(
-            #TODO: SQLi proof machen
-            'SELECT verification_code FROM dormitory WHERE id = ?;'
+            'SELECT verification_code FROM dormitory WHERE id = ?;',
             [form.dormitory.data]
         ).fetchone()
         
-        if form.verification_code.data != dorm['verification_code']:
+        if not check_password_hash(dorm['verification_code'], form.verification_code.data):
             form.verification_code.errors.append('Falscher Wohnheim-Code.')
         else:
             try:
                 db_con.execute(
                     'INSERT INTO user (username, email, password_hash, is_verified, dormitory_id)'
                     'VALUES (?, ?, ?, 1, ?)'
+                    [form.username.data, form.email.data.lower(),
+                    generate_password_hash(form.password.data), form.dormitory.data]
                 )
                 db_con.commit()
                 flash('Registrierung erfolgreich. Bitte einloggen.', 'success')
-                return redirect(url_for('home'))
+                return redirect(url_for('login'))
             except sqlite3.IntegrityError:
                 flash('Username oder Email ist bereits vergeben', 'warning')
                 
