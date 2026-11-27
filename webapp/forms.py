@@ -27,7 +27,9 @@ class RegistrationForm(FlaskForm):
     username = StringField('Username',
                         validators=[InputRequired(), Length(min=3, max=20)])
     
-    email = StringField('Uni-E-Mail',
+    #Filter nötig da sonst Leerzeichen oder chars aus copy paste die email validierung verhindern
+    email = StringField('Uni E-Mail',
+                        filters=[lambda x: x.strip() if x is not None else x],
                         validators=[InputRequired(), Email(), uni_email])
     
     dormitory = SelectField('Wohnheim', coerce=int,
@@ -44,7 +46,9 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Registrieren')
 
 class LoginForm(FlaskForm):
+    # filter aus dem selben Grund wie bei registerForm
     email = StringField('Uni-E-Mail',
+                        filters=[lambda x: x.strip() if x is not None else x],
                         validators=[InputRequired(), Email()])
     
     password = PasswordField('Password',
