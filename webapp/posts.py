@@ -144,9 +144,9 @@ def delete(post_id):
 
     form = ConfirmForm()
     if form.validate_on_submit():
-              db.execute('DELETE FROM post WHERE id = ? AND author_id = ?', (post_id, g.user['id']))
-              db.commit()
-    flash('Dein Beitrag wurde gelöscht.', 'success')
-    return redirect(url_for('posts.my_posts'))
-   
-    return render_template('posts/delete.html', post=post, form=form) 
+        db.execute('DELETE FROM post WHERE id = ? AND author_id = ?', (post_id, g.user['id']))
+        db.commit()
+        flash('Dein Beitrag wurde gelöscht.', 'success')
+        return redirect(url_for('posts.my_posts'))
+
+    return render_template('posts/delete.html', post=post, form=form)  
