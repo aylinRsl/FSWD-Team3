@@ -5,7 +5,6 @@ from flask import g, session, flash, redirect, url_for
 import database
 
 # vor Requests sollen eingeloggte User aus Session geladen werden
-@app.before_request
 def load_logged_in_user():
     user_id = session.get('user_id')
     if user_id is None:
