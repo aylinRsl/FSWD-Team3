@@ -1,4 +1,4 @@
-# StudyNet
+![StudyNet-Logo](webapp/static/css/Images/StudyNetLogo.png)
 
 Eine Plattform für gegenseitige Unterstützung, Vernetzung und Gemeinschaft in Studierendenwohnheimen.
 

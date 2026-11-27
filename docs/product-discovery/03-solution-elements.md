@@ -2,10 +2,18 @@
 
 # Solution Elements
 
-## [Raw Material]
+## Lösungsansätze für die identifizierten Probleme
 
-[List / link / paste any material that you created or referenced while generating **ideas and prototypes** that may solve the problem(s) you have identified.
+Aus der Umfrage und dem Inteview haben wir die zentralen Probleme abgeleitet und jeweils ein Lösungselement zugeordnet.
 
-Ideally, put any material that you created or collected in the folder `📁 docs/product-discovery/material/03-se/`, and link it on this page.
+| Problem (aus Users + Problems) | Lösungselement in StudyNet |
+| --- | --- |
+| 10 von 15 befragten Personen ist es unangenehm, Unbekannte im Wohnheim um Hilfe zu bitten | Anfragen werden öffentlich im eigenen Wohnheim gepostet statt an fremden Türen zu klingeln. Teilnahme bei StudyNet impliziert Hilfsbereitschaft. |
+| Hilfe soll schnell und unkompliziert sein ("wie eine Whatsapp Nachricht" ) | Kurzes Formular für Anfragen: Typ (suchen/anbieten), Titel, Kategorie, optional Beschreibung |
+| Man möchte direkt Kontakt aufnehmen können | Privatchat direkt möglich |
+| Man möchte wissen, mit wem man gerade in Kontakt ist | Registrierung nur mit Uni Mail möglich |
+| Häufig auftretende Bereiche: Pakete, Möbel, Fundsachen, Nachhilfe, Haustiere | untergeordnet nach Kategorien |
+| Die meisten wollen keine Bezahlung, zwei würden eine kostenpflichtige App nicht nutzen | Plattform kostenlos, Gegenleistung ist optional, möglich ist keine, ein dankeschön oder eine kleine Aufmerksamkeit |
 
-This section is also a good destination for your Value Proposition Canvas, if you created one.]
+## Value Proposition Canvas
+![Value Proposition Canvas](material/03-se/value-proposition.png)

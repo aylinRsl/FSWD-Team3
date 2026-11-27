@@ -5,8 +5,8 @@ from wtforms.validators import InputRequired, DataRequired, Length, Email, Equal
 #@aylinRsl
 # Email DOmains der verschiedenen berliner Hochschulen: Konstante für den Validator
 ALLOWED_DOMAINS = [
-    'stud.hwr-berlin.de'
-    'hwr-berlin.de'
+    'stud.hwr-berlin.de',
+    'hwr-berlin.de',
     'zedat.fu-berlin.de',      # FU
     'fu-berlin.de',            # FU 
     'student.hu-berlin.de',    # HU
@@ -27,12 +27,11 @@ class RegistrationForm(FlaskForm):
     username = StringField('Username',
                         validators=[InputRequired(), Length(min=3, max=20)])
     
-    email = StringField('Uni-E-Mail',
+    #Filter nötig da sonst Leerzeichen oder chars aus copy paste die email validierung verhindern
+    email = StringField('Uni E-Mail',
+                        filters=[lambda x: x.strip() if x is not None else x],
                         validators=[InputRequired(), Email(), uni_email])
     
-    # TODO: Wohnheime in Dorm Tabelle hinterlegen, SelectField mit Wohnheimen befüllen
-    # https://www.reddit.com/r/flask/comments/semnrv/populating_select_field_in_forms/
-
     dormitory = SelectField('Wohnheim', coerce=int,
                         validators=[InputRequired()])
     
@@ -40,20 +39,21 @@ class RegistrationForm(FlaskForm):
                         validators=[InputRequired()] )
     
     password = PasswordField('Password',
-                        validators=[InputRequired()])
+                        validators=[InputRequired(), Length(min=8)])
     
     confirm_password = PasswordField('Confirm Password',
                         validators=[InputRequired(), EqualTo('password')])
     submit = SubmitField('Registrieren')
 
 class LoginForm(FlaskForm):
+    # filter aus dem selben Grund wie bei registerForm
     email = StringField('Uni-E-Mail',
+                        filters=[lambda x: x.strip() if x is not None else x],
                         validators=[InputRequired(), Email()])
     
     password = PasswordField('Password',
                         validators=[InputRequired()])
-    # TODO überprüfen
-    # remember = BooleanField('Anmeldung speichern')
+    remember = BooleanField('Anmeldung speichern')
     submit = SubmitField('Einloggen')
 
 # Formulare für das Feature "CRUD für Beiträge" (Narin)

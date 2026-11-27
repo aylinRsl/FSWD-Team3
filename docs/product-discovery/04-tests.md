@@ -2,8 +2,24 @@
 
 # Tests
 
-## [Raw Material]
+## Testvorgehen
 
-[List / link / paste any material that you created or referenced while **testing** your ideas, prototypes, or app.
+- **Datum:**
+- **Durchführende Person:**
+- **Was wurde getestet:** 
+- **Mit wem:**
+- **Aufgaben:**
+1. Registriere dich mit deiner Uni Email und dem Wohnheim-Code.
+2. Erstelle eine Anfrage, z.B. "Suche Bohrmaschine"
+3. Markiere deine Anfrage als Erledigt.
+4. Suche eine Anfrage und schreibe der Person.
 
-Ideally, put any material that you created or collected in the folder `📁 docs/product-discovery/material/04-te/`, and link it on this page.]
+## Ergebnisse
+
+| Aufgabe | Beobachtung / Feedback | Änderung daraufhin |
+| --- | --- | --- |
+| Registrieren | [TODO] | [TODO] |
+| Anfrage erstellen | [TODO] | [TODO] |
+| Kontakt aufnehmen | [TODO] | [TODO] |
+| Als erledigt markieren | [TODO] | [TODO] |
+

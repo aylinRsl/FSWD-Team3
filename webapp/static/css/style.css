@@ -3,8 +3,19 @@ body {
     font-family: sans-serif;
     margin: 0;
     background-color: var(--color-highlight);
+    color: #222b23;
+    font-size: 0.9 rem;
+    line-height: 1.5;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.0rem;
+    margin-bottom: 0.4rem; 
+}
 .logo a {
     color: #3d6b35;
     font-size: 2rem;
@@ -45,15 +56,38 @@ input, button {
     padding: 1rem;
 }
 
-.chat-container {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+.profile-info-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.2s ease;
+    border: 2px solid var(--color-accent2);
+    background-color: var(--color-accent1);
 }
 
-.profile-card {
+.profile-box {
     padding: 1.5rem;
-    margin-top: 1.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.2s ease;
+}
+
+.profile-box:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-profile-edit {
+    background-color: var(--color-button);
+    color: white;
+    border: 1px solid var(--color-button);
+}
+
+.btn-profile-edit:hover {
+    background-color: var(--color-button-hover);
+    color: white;
+    opacity: 0.85;
 }
 
 .contact-form {
@@ -93,4 +127,29 @@ input, button {
 .studynet-navigation .navbar-brand {
     padding-top: 0;
     padding-bottom: 0;
+}
+.anfragen-subtitle {
+    font-size: 0.9rem;
+}
+
+.kategorien a {
+    display: inline-block;
+    padding: 0.30rem 0.70rem;
+    border: 1px solid #8b9b8c;
+    border-radius: 999px;
+    background-color: white;
+    color: var(--color-button);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.kategorien a:hover {
+    background-color: var(--color-accent1);
+}
+
+.kategorien a.active {
+    background-color: var(--color-button);
+    border-color: var(--color-button);
+    color: white;
 }

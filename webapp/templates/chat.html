@@ -6,26 +6,33 @@
 
     <h2>Nachrichten</h2>
 
-    <div class="row">
+    <div class="row chat-layout">
 
         <!-- Linke Seite: Chat-Liste -->
-        <div class="col-md-4">
+        <div class="col-md-4 chat-sidebar">
             <h5>Deine Chats</h5>
 
-            <div class="chat-container">
-
-                <!-- Beispielkontakt 1 -->
-                <div class="chat-contact">
-                    <strong>Anna Müller</strong>
-                    <p>Hey, wie geht's dir?</p>
-                </div>
-
+            <!-- Beispielkontakt 1 -->
+            <div class="chat-contact active">
+                <strong>Anna Müller</strong>
+                <p>Hey, wie geht's dir?</p>
             </div>
+            <!-- Beispielkontakt 2 -->
+            <div class="chat-contact">
+                <strong>Max Schmidt</strong>
+                <p>Bis später! </p>
+            </div>
+
         </div>
 
         <!-- Rechte Seite: Geöffneter Chat -->
-        <div class="col-md-8">
-            <h5>Chat mit Anna Müller</h5>
+        <div class="col-md-8 chat-main">
+            <div class="chat-header">
+                <div>
+                    <h5>Anna Müller</h5>
+                    <small>Chat</small>
+                </div>
+            </div>
 
             <div class="chat-window">
 
