@@ -79,8 +79,8 @@ def register():
         else:
             try:
                 db_con.execute(
-                    'INSERT INTO user (username, email, password_hash, is_verified, dormitory_id)'
-                    'VALUES (?, ?, ?, 1, ?)'
+                    'INSERT INTO user (username, email, password_hash, is_verified, dormitory_id) '
+                    'VALUES (?, ?, ?, 1, ?);',
                     [form.username.data, form.email.data.lower(),
                     generate_password_hash(form.password.data), form.dormitory.data]
                 )
@@ -92,28 +92,28 @@ def register():
                 
     return render_template('register.html', title='Registrieren', form=form)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = database.get.db().execute(
+        user = database.get_db().execute(
             'SELECT id, password_hash FROM user WHERE email = ?;',
             [form.email.data.lower()]
         ).fetchone()
         if user is None or not check_password_hash(user['password_hash'], form.password.data):
-            flash('Email oder Passwort ist falsch.', 'danger')
+            flash('E-Mail oder Passwort ist falsch.', 'danger')
         else:
             session.clear()
             session['user_id'] = user['id']
             flash('Erfolgreich eingeloggt.', 'success')
             return redirect(url_for('home'))
-    return render_template('login.html', title='Login', form=form)
+    return render_template('login.html', form=form)
 
 @app.route('/logout')
 def logout():
     session.clear()
     flash('Du wurdest ausgeloggt.', 'info')
-    redirect(url_for('login'))
+    return redirect(url_for('login'))
     
 @app.route('/anfragen')
 #@login_required
