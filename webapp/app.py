@@ -8,6 +8,7 @@ from forms import ContactForm, RegistrationForm, LoginForm
 from flask import Flask, render_template, url_for, flash, redirect, session
 from flask_mail import Mail, Message
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import timedelta
 
 app = Flask(__name__)
 #TODO: Mail server und port hier als platzhälter
@@ -26,7 +27,8 @@ app.config['SECRET_KEY'] = 'secret-key'
 app.secret_key = "studynet-secret-key"
 
 app.config.from_mapping(
-    DATABASE=os.path.join(app.instance_path, 'studynet.sqlite')
+    DATABASE=os.path.join(app.instance_path, 'studynet.sqlite'),
+    PERMANENT_SESSION_LIFETIME=timedelta(days=14)
 )
 app.cli.add_command(database.init_db)
 app.teardown_appcontext(database.close_db)
@@ -88,6 +90,7 @@ def login():
         else:
             session.clear()
             session['user_id'] = user['id']
+            session.permanent = form.remember.data
             flash('Erfolgreich eingeloggt.', 'success')
             return redirect(url_for('home'))
     return render_template('login.html', form=form)

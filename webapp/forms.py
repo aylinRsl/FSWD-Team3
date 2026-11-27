@@ -53,8 +53,7 @@ class LoginForm(FlaskForm):
     
     password = PasswordField('Password',
                         validators=[InputRequired()])
-    # TODO überprüfen
-    # remember = BooleanField('Anmeldung speichern')
+    remember = BooleanField('Anmeldung speichern')
     submit = SubmitField('Einloggen')
 
 # Formulare für das Feature "CRUD für Beiträge" (Narin)
