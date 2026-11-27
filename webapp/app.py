@@ -2,8 +2,10 @@ import os
 import database 
 import functools
 import sqlite3
+import auth
+from auth import login_required
 from forms import ContactForm, RegistrationForm, LoginForm
-from flask import Flask, render_template, url_for, flash, redirect, session, g
+from flask import Flask, render_template, url_for, flash, redirect, session
 from flask_mail import Mail, Message
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -33,27 +35,8 @@ app.teardown_appcontext(database.close_db)
 import posts
 app.register_blueprint(posts.bp)
 
-# vor Requests sollen eingeloggte User aus Session geladen werden
-@app.before_request
-def load_logged_in_user():
-    user_id = session.get('user_id')
-    if user_id is None:
-        g.user = None
-    else:
-        g.user = database.get_db().execute(
-            'SELECT id, username, email, dormitory_id FROM user WHERE id = ?;',
-            [user_id]
-        ).fetchone()
-        
-# neuer decorator, sodass nur eingeloggte User die Route verwenden können
-def login_required(view):
-    @functools.wraps(view)
-    def wrapped_view(**kwargs):
-        if g.user is None:
-            flash('Bitte zuerst einloggen.', 'warning')
-            return redirect(url_for('login'))
-        return view(**kwargs)
-    return wrapped_view
+# user laden -> Funktion steht in auth.py
+app.before_request(auth.load_logged_in_user)
 
 @app.route('/')
 @app.route('/home')
