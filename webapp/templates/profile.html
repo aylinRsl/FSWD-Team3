@@ -35,7 +35,7 @@
                     <hr>
                     <p>Hilfe beim Umzug am Samstag</p>
                     <p>Suche Lerngruppe für Mathematik</p>
-                    <a href="anfragenerstellen">+ Neue Anfrage</a>
+                    <a href="{{ url_for('posts.create', typ='request') }}">+ Neue Anfrage</a>
                 </div>
             </div>
         
@@ -45,7 +45,7 @@
                     <hr>
                     <p>Fahrrad-Reparatur</p>
                     <p>Englisch-Nachhilfe</p>
-                    <a href="anfragenerstellen">+ Neues Angebot</a>
+                    <a href="{{ url_for('posts.create', typ='offer') }}">+ Neues Angebot</a>
                 </div>
             </div>
 
