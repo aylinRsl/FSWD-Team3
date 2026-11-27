@@ -39,6 +39,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ url_for('profile') }}">Profil</a>
       </li>
+            <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('posts.my_posts') }}">Meine Beiträge</a>
+      </li>
       <li class="nav-item">
         <a class="btn studynet-create-button" 
             href="{{url_for('posts.create', typ='request')}}">
